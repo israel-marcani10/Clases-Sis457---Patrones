@@ -24,7 +24,6 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\AudioMixer\Public\Quartz/AudioMixerQuantizedCommands.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AudioComponent.generated.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Nave.generated.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Cola.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\PlayerShip.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/GameplayStatics.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
@@ -35,3 +34,15 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Bullet.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Proyectil.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Proyectil.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Bullet.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Lightning.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Lightning.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Missile.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Missile.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Bomb.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Bomb.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h

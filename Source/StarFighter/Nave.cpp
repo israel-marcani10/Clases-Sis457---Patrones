@@ -15,18 +15,18 @@ ANave::ANave()
 
 	// creando las propiedades
 	ShipMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
-	ParticleSystems = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ParticleSytem"));
-	CollisionComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CollisionComponent"));
-	ExplosionFX = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ExplosionFX"));
+	ShipParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Ship Particle"));
+	//CreateProjectile = CreateDefaultSubobject<USceneComponent>(TEXT("Create Projectile"));
+	ShipCollision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Ship Collision"));
+	ShipExplosion = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Ship Explosion"));
 	DeathExplosionSound = CreateDefaultSubobject<UAudioComponent>(TEXT("DeadtExplosionSound"));
-
-	BulletSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("BulletSpawnPoint"));
 
 	// atachando las propiedades al componente ruta
 	ShipMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	ParticleSystems->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	CollisionComponent->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	ExplosionFX->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	ShipParticle->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	//CreateProjectile->SetupAttachment(RootComponent);
+	ShipCollision->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	ShipExplosion->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	DeathExplosionSound->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
@@ -35,7 +35,7 @@ void ANave::BeginPlay()
 {
 	Super::BeginPlay();
 
-	ExplosionFX->Deactivate(); // explision desactivado
+	ShipExplosion->Deactivate(); // explision desactivado
 	DeathExplosionSound->Deactivate(); // desactivamos el sonido de explosion al iniciar
 }
 

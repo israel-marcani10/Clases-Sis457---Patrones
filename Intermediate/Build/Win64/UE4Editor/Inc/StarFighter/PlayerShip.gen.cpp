@@ -18,6 +18,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 	STARFIGHTER_API UClass* Z_Construct_UClass_ANave();
 	UPackage* Z_Construct_UPackage__Script_StarFighter();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(APlayerShip::execOnBeginOverlap)
 	{
@@ -59,7 +61,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerShip_OnBeginOverlap_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// para la nueva ubicacion\n" },
 		{ "ModuleRelativePath", "PlayerShip.h" },
+		{ "ToolTip", "para la nueva ubicacion" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerShip_OnBeginOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerShip, nullptr, "OnBeginOverlap", nullptr, nullptr, sizeof(PlayerShip_eventOnBeginOverlap_Parms), Z_Construct_UFunction_APlayerShip_OnBeginOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerShip_OnBeginOverlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayerShip_OnBeginOverlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerShip_OnBeginOverlap_Statics::Function_MetaDataParams)) };
@@ -108,13 +112,25 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Field_Height;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerScore_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_PlayerScore;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxVelocity_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxVelocity;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerScore_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GunOffset_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_PlayerScore;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_GunOffset;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireRate_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_FireRate;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireSound_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireSound;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -124,7 +140,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_StarFighter,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayerShip_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_APlayerShip_OnBeginOverlap, "OnBeginOverlap" }, // 4293885958
+		{ &Z_Construct_UFunction_APlayerShip_OnBeginOverlap, "OnBeginOverlap" }, // 3990779306
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerShip_Statics::Class_MetaDataParams[] = {
@@ -189,6 +205,15 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerShip_Statics::NewProp_Field_Height = { "Field_Height", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerShip, Field_Height), METADATA_PARAMS(Z_Construct_UClass_APlayerShip_Statics::NewProp_Field_Height_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerShip_Statics::NewProp_Field_Height_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerShip_Statics::NewProp_PlayerScore_MetaData[] = {
+		{ "Category", "PlayerShip" },
+		{ "Comment", "// propiedad para saber la puntuacion del jugador\n" },
+		{ "ModuleRelativePath", "PlayerShip.h" },
+		{ "ToolTip", "propiedad para saber la puntuacion del jugador" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerShip_Statics::NewProp_PlayerScore = { "PlayerScore", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerShip, PlayerScore), METADATA_PARAMS(Z_Construct_UClass_APlayerShip_Statics::NewProp_PlayerScore_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerShip_Statics::NewProp_PlayerScore_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerShip_Statics::NewProp_MaxVelocity_MetaData[] = {
 		{ "Category", "PlayerShip" },
 		{ "Comment", "// propiedad velocidad maxima de la nave jugador\n" },
@@ -198,14 +223,30 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerShip_Statics::NewProp_MaxVelocity = { "MaxVelocity", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerShip, MaxVelocity), METADATA_PARAMS(Z_Construct_UClass_APlayerShip_Statics::NewProp_MaxVelocity_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerShip_Statics::NewProp_MaxVelocity_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerShip_Statics::NewProp_PlayerScore_MetaData[] = {
-		{ "Category", "PlayerShip" },
-		{ "Comment", "// propiedad para saber la puntuacion del jugador\n" },
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerShip_Statics::NewProp_GunOffset_MetaData[] = {
+		{ "Category", "Gameplay" },
+		{ "Comment", "/** Offset from the ships location to spawn projectiles */" },
 		{ "ModuleRelativePath", "PlayerShip.h" },
-		{ "ToolTip", "propiedad para saber la puntuacion del jugador" },
+		{ "ToolTip", "Offset from the ships location to spawn projectiles" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerShip_Statics::NewProp_PlayerScore = { "PlayerScore", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerShip, PlayerScore), METADATA_PARAMS(Z_Construct_UClass_APlayerShip_Statics::NewProp_PlayerScore_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerShip_Statics::NewProp_PlayerScore_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_APlayerShip_Statics::NewProp_GunOffset = { "GunOffset", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerShip, GunOffset), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_APlayerShip_Statics::NewProp_GunOffset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerShip_Statics::NewProp_GunOffset_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerShip_Statics::NewProp_FireRate_MetaData[] = {
+		{ "Category", "Gameplay" },
+		{ "Comment", "/* How fast the weapon will fire */" },
+		{ "ModuleRelativePath", "PlayerShip.h" },
+		{ "ToolTip", "How fast the weapon will fire" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerShip_Statics::NewProp_FireRate = { "FireRate", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerShip, FireRate), METADATA_PARAMS(Z_Construct_UClass_APlayerShip_Statics::NewProp_FireRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerShip_Statics::NewProp_FireRate_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerShip_Statics::NewProp_FireSound_MetaData[] = {
+		{ "Category", "Audio" },
+		{ "ModuleRelativePath", "PlayerShip.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayerShip_Statics::NewProp_FireSound = { "FireSound", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerShip, FireSound), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayerShip_Statics::NewProp_FireSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerShip_Statics::NewProp_FireSound_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerShip_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_Max_Health,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_Current_Health,
@@ -213,8 +254,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_Current_Armor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_Field_Width,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_Field_Height,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_MaxVelocity,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_PlayerScore,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_MaxVelocity,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_GunOffset,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_FireRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_FireSound,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APlayerShip_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APlayerShip>::IsAbstract,
@@ -243,7 +287,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayerShip, 2825884645);
+	IMPLEMENT_CLASS(APlayerShip, 1924257177);
 	template<> STARFIGHTER_API UClass* StaticClass<APlayerShip>()
 	{
 		return APlayerShip::StaticClass();

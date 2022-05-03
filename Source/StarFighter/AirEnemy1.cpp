@@ -22,9 +22,12 @@ AAirEnemy1::AAirEnemy1()
 // metodo para la destruccion de la nave aerea enemiga
 void AAirEnemy1::destroyEnemyAirShip()
 {
-	if (life <= 0.0f) {
-		this->Destroy();
+	if (ExplosionParticle)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ExplosionParticle, GetActorTransform());
 	}
+
+	Destroy();
 }
 
 void AAirEnemy1::BeginPlay()

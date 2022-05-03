@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Nave.h"
-#include "Cola.h"
 #include "PlayerShip.generated.h"
 
 /**
@@ -34,20 +33,46 @@ public:
 	UPROPERTY(EditAnywhere)
 		float Field_Height; // altura del campo
 
-	// propiedad velocidad maxima de la nave jugador
-	UPROPERTY(EditAnywhere)
-		float MaxVelocity;
-
-	// metodos para el movimiento de la nave jugador
-	void MoveHorizontal(float AxisValue);
-	void MoveVertical(float AxisValue);
-
 	// propiedad para saber la puntuacion del jugador
 	UPROPERTY(BlueprintReadOnly)
 		float PlayerScore;
 
+	// propiedad velocidad maxima de la nave jugador
+	UPROPERTY(EditAnywhere)
+		float MaxVelocity;
+
+	/** Offset from the ships location to spawn projectiles */
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
+		FVector GunOffset;
+
+	/* How fast the weapon will fire */
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
+		float FireRate;
+
+	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
+		class USoundBase* FireSound;
+	
+	static const FName MoveHorizontalBinding;
+	static const FName MoveVerticalBinding;
+	static const FName FireBinding1;
+	static const FName FireBinding2;
+	static const FName FireBinding3;
+	static const FName FireBinding4;
+
+	// variables tipo vector para la nave jugador
+	FVector Current_Location; // para la ubicacion actual
+	FVector New_Location; // para la nueva ubicacion
+
 	UFUNCTION()
 		void OnBeginOverlap(AActor* PlayerActor, AActor* OtherActor);
+
+	void Fire();
+	void FireWeapon(FVector FireDirection);
+	void ShotTimerExpired();
+
+	// metodos para el movimiento de la nave jugador
+	void MoveHorizontal(float AxisValue);
+	void MoveVertical(float AxisValue);
 
 protected:
 	virtual void BeginPlay() override;
@@ -58,4 +83,13 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+private:
+
+	/* Flag to control firing  */
+	uint32 bCanFire : 1;
+
+	/** Handle for efficient management of ShotTimerExpired timer */
+	FTimerHandle TimerHandle_ShotTimerExpired;
+
+	float Ammunition;
 };

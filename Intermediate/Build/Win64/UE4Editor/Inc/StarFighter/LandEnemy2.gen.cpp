@@ -103,7 +103,7 @@ void EmptyLinkFunctionForGeneratedCodeLandEnemy2() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ALandEnemy2, 2389926278);
+	IMPLEMENT_CLASS(ALandEnemy2, 3656831235);
 	template<> STARFIGHTER_API UClass* StaticClass<ALandEnemy2>()
 	{
 		return ALandEnemy2::StaticClass();

@@ -4,76 +4,74 @@
 
 #include "CoreMinimal.h"
 
-/*
-template<typename T> class Cola;
+template<typename Tmp> class Cola;
 
-template<typename T>
+template<typename Tmp>
 class Nodo {
-	friend Cola<T>;
+	friend Cola<Tmp>;
 private:
-	T Valor;
-	Nodo<T>* Siguiente;
+	Tmp valor;
+	Nodo<Tmp>* siguiente;
 
 public:
-	Nodo(T _Valor, Nodo<T>* _Siguiente = nullptr) {
-		Valor = _Valor;
-		Siguiente = _Siguiente;
+	Nodo(Tmp _valor, Nodo<Tmp>* _siguiente = nullptr) {
+		valor = _valor;
+		siguiente = _siguiente;
 	}
 };
 
-
-template<typename T>
-class Cola
-{
+template<class Tmp>
+class Cola {
 private:
-	Nodo<T>* Primero;
-	Nodo<T>* Ultimo;
+	Nodo<Tmp>* primero;
+	Nodo<Tmp>* ultimo;
 public:
-	Cola() : Primero(nullptr), Ultimo(nullptr) {}
+	Cola() : primero(nullptr), ultimo(nullptr) {}
 	~Cola();
-	void Push(T _valor);
-	T Pop();
+	void Push(Tmp _valor);
+	Tmp Pop();
 };
 
-template<typename T>
-Cola<T>::~Cola() {
-	while (Primero) {
+template<class Tmp>
+Cola<Tmp>::~Cola() {
+	while (primero) {
 		Pop();
 	}
 }
 
-template<typename T>
-void Cola<T>::Push(T _Valor) {
-	Nodo<T>* NodoNuevo;
-	NodoNuevo = new Nodo<T>(_Valor);
-	//Nodo<T>* NodoNuevo = new Nodo<T>(_Valor);
+template<class Tmp>
+void Cola<Tmp>::Push(Tmp _valor) {
+	Nodo<Tmp>* nodoNuevo;
+	nodoNuevo = new Nodo<Tmp>(_valor);
 
-	if (Ultimo) {
-		Ultimo->Siguiente = NodoNuevo;
+	if (ultimo) {
+		ultimo->siguiente = nodoNuevo;
 	}
-	Ultimo = NodoNuevo;
 
-	if (!Primero) {
-		Primero = NodoNuevo;
+	ultimo = nodoNuevo;
+
+	if (!primero) {
+		primero = nodoNuevo;
 	}
 }
 
-template<typename T>
-T Cola<T>::Pop() {
-	Nodo<T>* NodoActual;
-	T ValorNodo;
-	NodoActual = Primero;
-	if (!NodoActual) {
+template<class Tmp>
+Tmp Cola<Tmp>::Pop() {
+	Nodo<Tmp>* nodoActual;
+	Tmp valorNodo;
+
+	nodoActual = primero;
+	if (!nodoActual) {
 		return 0;
 	}
-	Primero = NodoActual->Siguiente;
-	ValorNodo = NodoActual->Valor;
-	delete NodoActual;
 
-	if (!Primero) {
-		Ultimo = nullptr;
+	primero = nodoActual->siguiente;
+	valorNodo = nodoActual->valor;
+	delete nodoActual;
+
+	if (!primero) {
+		ultimo = nullptr;
 	}
 
-	return ValorNodo;
+	return valorNodo;
 }
-*/

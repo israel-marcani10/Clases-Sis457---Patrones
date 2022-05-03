@@ -130,7 +130,7 @@ void EmptyLinkFunctionForGeneratedCodeAquaticEnemy1() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AAquaticEnemy1, 2940857378);
+	IMPLEMENT_CLASS(AAquaticEnemy1, 2583434765);
 	template<> STARFIGHTER_API UClass* StaticClass<AAquaticEnemy1>()
 	{
 		return AAquaticEnemy1::StaticClass();

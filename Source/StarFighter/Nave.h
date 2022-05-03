@@ -4,12 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-
 #include "Particles/ParticleSystemComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/AudioComponent.h"
-
 #include "Nave.generated.h"
 
 UCLASS()
@@ -23,36 +21,25 @@ public:
 
 	// Propiedades de la nave padre
 	UPROPERTY(EditAnywhere)
-		USceneComponent* DefaulSceneRoot; // 
+		USceneComponent* DefaulSceneRoot;
 	UPROPERTY(EditAnywhere)
-		UParticleSystemComponent* ParticleSystems; // para el propulsor
+		USceneComponent* CreateProjectile;
 	UPROPERTY(EditAnywhere)
-		UParticleSystemComponent* ExplosionFX; // para la explosion
+		UParticleSystemComponent* ShipParticle; // para el propulsor
+	UPROPERTY(EditAnywhere)
+		UParticleSystemComponent* ShipExplosion; // para la explosion
 	UPROPERTY(EditAnywhere)
 		UStaticMeshComponent* ShipMesh; // la malla o cascara
 	UPROPERTY(EditAnywhere)
-		UCapsuleComponent* CollisionComponent; // para colisiones 
+		UCapsuleComponent* ShipCollision; // para colisiones 
 	UPROPERTY(EditAnywhere)
 		UAudioComponent* DeathExplosionSound; // sonido de muerte
 	UPROPERTY(EditAnywhere)
 		USceneComponent* BulletSpawnPoint;
 
-	// variables tipo vector para la nave jugador
-	FVector Current_Location; // para la ubicacion actual
-	FRotator Current_Rotation; // para la rotacion de la nave
-	FVector New_Location; // para la nueva ubicacion
-
-	// propiedades de las balas
-	bool bIsFiring; // esta disparando (true or false)
-	float WeaponFireRate; // velocidad de disparo
-	float TimeSceneLastShot; // tiempo de la duracion del disparo
-
-	bool bHit; // chocar
-	bool bDead; // muerto
-
 	// velocidad actual en X y Y de la nave
-	float Current_X_Velocity;
-	float Current_Y_Velocity;
+	float Current_X_Velocity = 0.0f;
+	float Current_Y_Velocity = 0.0f;
 
 protected:
 	// Called when the game starts or when spawned
