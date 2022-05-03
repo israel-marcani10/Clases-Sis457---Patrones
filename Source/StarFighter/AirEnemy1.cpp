@@ -10,13 +10,13 @@ AAirEnemy1::AAirEnemy1()
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	// Use a ProjectileMovementComponent to govern this projectile's movement
+	// Controlamos algunas de las propiedades del objeto
 	MoveAirShip = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Move Air Ship"));
 	MoveAirShip->InitialSpeed = 150.0f;
-	MoveAirShip->MaxSpeed = 150.0f;
-	MoveAirShip->bRotationFollowsVelocity = true;
+	MoveAirShip->MaxSpeed = 150.0f; 
+	MoveAirShip->bRotationFollowsVelocity = true; 
 	MoveAirShip->bShouldBounce = false;
-	MoveAirShip->ProjectileGravityScale = 0.f; // No gravity
+	MoveAirShip->ProjectileGravityScale = 0.f; // No gravedad
 }
 
 // metodo para la destruccion de la nave aerea enemiga
@@ -33,7 +33,7 @@ void AAirEnemy1::destroyEnemyAirShip()
 void AAirEnemy1::BeginPlay()
 {
 	Super::BeginPlay();
-	life = 10.0f;
+	life = 10.0f; // inicializando vida
 }
 
 void AAirEnemy1::Tick(float DeltaTime)

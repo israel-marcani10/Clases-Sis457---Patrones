@@ -8,6 +8,7 @@
 #include "Lightning.h"
 #include "Missile.h"
 #include "Bomb.h"
+#include "Cola.h"
 #include "Engine/World.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -24,16 +25,29 @@ APlayerShip::APlayerShip()
 	// nave jugador posee automaticamente la camara al empezar el nivel
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
-	// Cache our sound effect
+	// Efecto del sonido
 	static ConstructorHelpers::FObjectFinder<USoundBase> FireAudio(TEXT("SoundWave'/Game/SFX/laser.laser'"));
 	FireSound = FireAudio.Object;
 
 	// Weapon
 	GunOffset = FVector(90.f, 0.f, 0.f);
-	FireRate = 0.1f;
-	bCanFire = false;
+	FireRate = 0.1f; // la velocidad del disparo
+	bCanFire = false; // bandera si o no disparar
 
-	Ammunition = 0.0f;
+	// creando el objeto para meter a nuestra colita
+	const FVector MoveDirection = FVector(1.f, 0.f, 0.f).GetClampedToMaxSize(1.0f);
+	const FRotator FireRotation = MoveDirection.Rotation();
+	const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+	UWorld* const World = GetWorld();
+	if (World != nullptr)
+	{
+		// metiendo objetos de tipo misil a la cola
+		ColaMissiles.Push(World->SpawnActor<AMissile>(SpawnLocation, FireRotation));
+		ColaMissiles.Push(World->SpawnActor<AMissile>(SpawnLocation, FireRotation));
+		ColaMissiles.Push(World->SpawnActor<AMissile>(SpawnLocation, FireRotation));
+		ColaMissiles.Push(World->SpawnActor<AMissile>(SpawnLocation, FireRotation));
+		ColaMissiles.Push(World->SpawnActor<AMissile>(SpawnLocation, FireRotation));
+	}
 
 }
 
@@ -49,9 +63,6 @@ void APlayerShip::BeginPlay()
 	Current_Health = 100.0f; // salud actual
 	Max_Armor = 100.0f; // armadura maxima
 	Current_Armor = 100.0f; // armadura actual
-
-	// llamando a mi funcion para sobreponerse mi nave jugador
-	OnActorBeginOverlap.AddDynamic(this, &APlayerShip::OnBeginOverlap);
 }
 
 void APlayerShip::Tick(float DeltaTime)
@@ -77,35 +88,19 @@ void APlayerShip::Tick(float DeltaTime)
 		Current_Location = FVector(Current_Location.X, Field_Height - 1, Current_Location.Z);
 	if (this->GetActorLocation().Y < -Field_Height)
 		Current_Location = FVector(Current_Location.X, -Field_Height + 1, Current_Location.Z);
-	
-	const float AmmunitionValue1 = GetInputAxisValue(FireBinding1);
-	const float AmmunitionValue2 = GetInputAxisValue(FireBinding2);
-	const float AmmunitionValue3 = GetInputAxisValue(FireBinding3);
-	const float AmmunitionValue4 = GetInputAxisValue(FireBinding4);
-
-	if (AmmunitionValue1 != 0.0 || AmmunitionValue2 != 0.0 || AmmunitionValue3 != 0.0 || AmmunitionValue4 != 0.0) {
-		if (AmmunitionValue1 != Ammunition)
-			Ammunition = AmmunitionValue1;
-		if (AmmunitionValue2 != Ammunition)
-			Ammunition = AmmunitionValue2;
-		if (AmmunitionValue3 != Ammunition)
-			Ammunition = AmmunitionValue3;
-		if (AmmunitionValue4 != Ammunition)
-			Ammunition = AmmunitionValue4;
-	}
 }
 
 void APlayerShip::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	check(PlayerInputComponent);
 
-	// set up gameplay key bindings
+	// conectando con el unreal para el manejo de las teclas
 	PlayerInputComponent->BindAxis(MoveHorizontalBinding, this, &APlayerShip::MoveHorizontal);
 	PlayerInputComponent->BindAxis(MoveVerticalBinding, this, &APlayerShip::MoveVertical);
-	InputComponent->BindAction(FireBinding1, IE_Pressed, this, &APlayerShip::Fire);
-	InputComponent->BindAction(FireBinding2, IE_Pressed, this, &APlayerShip::Fire);
-	InputComponent->BindAction(FireBinding3, IE_Pressed, this, &APlayerShip::Fire);
-	InputComponent->BindAction(FireBinding4, IE_Pressed, this, &APlayerShip::Fire);
+	InputComponent->BindAction(FireBinding1, IE_Pressed, this, &APlayerShip::Fire1);
+	InputComponent->BindAction(FireBinding2, IE_Pressed, this, &APlayerShip::Fire2);
+	InputComponent->BindAction(FireBinding3, IE_Pressed, this, &APlayerShip::Fire3);
+	InputComponent->BindAction(FireBinding4, IE_Pressed, this, &APlayerShip::Fire4);
 }
 
 void APlayerShip::MoveHorizontal(float AxisValue)
@@ -118,17 +113,35 @@ void APlayerShip::MoveVertical(float AxisValue)
 	Current_Y_Velocity = MaxVelocity * AxisValue;
 }
 
-void APlayerShip::Fire()
+void APlayerShip::Fire1()
 {
 	bCanFire = true;
-
-	UE_LOG(LogTemp, Warning, TEXT("FireForwardValue: %f FireRightValue: %f"));
 	const FVector FireDirection = FVector(1.0, 0.0, 0.f).GetClampedToMaxSize(1.0f);
-	
-	FireWeapon(FireDirection);
-}
 
-void APlayerShip::FireWeapon(FVector FireDirection)
+	FireWeapon1(FireDirection);
+}
+void APlayerShip::Fire2()
+{
+	bCanFire = true;
+	const FVector FireDirection = FVector(1.0, 0.0, 0.f).GetClampedToMaxSize(1.0f);
+
+	FireWeapon2(FireDirection);
+}
+void APlayerShip::Fire3()
+{
+	bCanFire = true;
+	const FVector FireDirection = FVector(1.0, 0.0, 0.f).GetClampedToMaxSize(1.0f);
+
+	FireWeapon3(FireDirection);
+}
+void APlayerShip::Fire4()
+{
+	bCanFire = true;
+	const FVector FireDirection = FVector(1.0, 0.0, 0.f).GetClampedToMaxSize(1.0f);
+
+	FireWeapon4(FireDirection);
+}
+void APlayerShip::FireWeapon1(FVector FireDirection)
 {
 	if (bCanFire == true) {
 		const FRotator FireRotation = FireDirection.Rotation();
@@ -137,7 +150,7 @@ void APlayerShip::FireWeapon(FVector FireDirection)
 		
 		UWorld* const World = GetWorld();
 		if (World != nullptr) {
-			// spawn the projectile
+			// generando el proyectil
 			World->SpawnActor<ABullet>(SpawnLocation, FireRotation);
 		}
 		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
@@ -148,17 +161,65 @@ void APlayerShip::FireWeapon(FVector FireDirection)
 		bCanFire = false;
 	}
 }
+void APlayerShip::FireWeapon2(FVector FireDirection)
+{
+	if (bCanFire == true) {
+		const FRotator FireRotation = FireDirection.Rotation();
+		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+
+		UWorld* const World = GetWorld();
+		if (World != nullptr) {
+			// generando el proyectil
+			World->SpawnActor<ALightning>(SpawnLocation, FireRotation);
+		}
+		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
+
+		if (FireSound != nullptr)
+			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+
+		bCanFire = false;
+	}
+}
+void APlayerShip::FireWeapon3(FVector FireDirection)
+{
+	if (bCanFire == true) {
+		const FRotator FireRotation = FireDirection.Rotation();
+		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+
+		UWorld* const World = GetWorld();
+		if (World != nullptr) {
+			// generando el proyectil
+			World->SpawnActor<AMissile>(SpawnLocation, FireRotation);
+		}
+		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
+
+		if (FireSound != nullptr)
+			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+
+		bCanFire = false;
+	}
+}
+void APlayerShip::FireWeapon4(FVector FireDirection)
+{
+	if (bCanFire == true) {
+		const FRotator FireRotation = FireDirection.Rotation();
+		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+
+		UWorld* const World = GetWorld();
+		if (World != nullptr) {
+			// generando el proyectil
+			World->SpawnActor<ABomb>(SpawnLocation, FireRotation);
+		}
+		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
+
+		if (FireSound != nullptr)
+			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+
+		bCanFire = false;
+	}
+}
 
 void APlayerShip::ShotTimerExpired()
 {
 	bCanFire = true;
 }
-
-void APlayerShip::OnBeginOverlap(AActor* PlayerActor, AActor* OtherActor)
-{
-}
-
-
-
-
-

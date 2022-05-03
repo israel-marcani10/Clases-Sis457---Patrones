@@ -17,8 +17,7 @@ class STARFIGHTER_API ABullet : public AProyectil
 public:
 	ABullet();
 
-protected:
-	virtual void BeginPlay() override;
-public:
-	virtual void Tick(float DeltaTime) override;
+	// propiedades de bala
+	UPROPERTY(EditAnywhere)
+		float Damage; // daño de la bala
 };

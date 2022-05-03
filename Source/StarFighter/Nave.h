@@ -23,8 +23,6 @@ public:
 	UPROPERTY(EditAnywhere)
 		USceneComponent* DefaulSceneRoot;
 	UPROPERTY(EditAnywhere)
-		USceneComponent* CreateProjectile;
-	UPROPERTY(EditAnywhere)
 		UParticleSystemComponent* ShipParticle; // para el propulsor
 	UPROPERTY(EditAnywhere)
 		UParticleSystemComponent* ShipExplosion; // para la explosion
@@ -34,8 +32,6 @@ public:
 		UCapsuleComponent* ShipCollision; // para colisiones 
 	UPROPERTY(EditAnywhere)
 		UAudioComponent* DeathExplosionSound; // sonido de muerte
-	UPROPERTY(EditAnywhere)
-		USceneComponent* BulletSpawnPoint;
 
 	// velocidad actual en X y Y de la nave
 	float Current_X_Velocity = 0.0f;
@@ -52,4 +48,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	// implementando funciones inline a la clase padre
+	FORCEINLINE class UStaticMeshComponent* GetShipMeshComponent() const { return ShipMesh; }
+	FORCEINLINE class UParticleSystemComponent* GetShipParticleComponent() const { return ShipParticle; }
+	FORCEINLINE class UAudioComponent* GetDeatExplosion() const { return DeathExplosionSound; }
 };

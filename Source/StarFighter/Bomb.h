@@ -17,5 +17,8 @@ class STARFIGHTER_API ABomb : public AProyectil
 public:
 	ABomb();
 
+	// propiedades de bala
+	UPROPERTY(EditAnywhere)
+		float Damage; // daño de la bala
 
 };

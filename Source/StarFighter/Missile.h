@@ -16,4 +16,13 @@ class STARFIGHTER_API AMissile : public AProyectil
 	
 public:
 	AMissile();
+
+	// propiedades de bala
+	UPROPERTY(EditAnywhere)
+		float Damage; // daño de la bala
+	UPROPERTY(EditAnywhere)
+		float Zise; // tamaño
+	UPROPERTY(EditAnywhere)
+		float Shape; // forma
+
 };

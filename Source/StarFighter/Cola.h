@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 
+// creando template clase cola
 template<typename Tmp> class Cola;
 
+// clase nodo con template
 template<typename Tmp>
 class Nodo {
 	friend Cola<Tmp>;
@@ -20,13 +22,16 @@ public:
 	}
 };
 
+// clase cola
 template<class Tmp>
 class Cola {
 private:
 	Nodo<Tmp>* primero;
 	Nodo<Tmp>* ultimo;
 public:
+	// constructor
 	Cola() : primero(nullptr), ultimo(nullptr) {}
+	// destructor
 	~Cola();
 	void Push(Tmp _valor);
 	Tmp Pop();
@@ -39,6 +44,7 @@ Cola<Tmp>::~Cola() {
 	}
 }
 
+// metodo introducir objetos
 template<class Tmp>
 void Cola<Tmp>::Push(Tmp _valor) {
 	Nodo<Tmp>* nodoNuevo;
@@ -55,6 +61,7 @@ void Cola<Tmp>::Push(Tmp _valor) {
 	}
 }
 
+// metodo eliminar o sacar objetos
 template<class Tmp>
 Tmp Cola<Tmp>::Pop() {
 	Nodo<Tmp>* nodoActual;

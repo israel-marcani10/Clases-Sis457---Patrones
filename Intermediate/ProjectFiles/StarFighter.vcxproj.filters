@@ -130,5 +130,6 @@
     <ClInclude Include="..\..\Source\StarFighter\StarFighterGameModeBase.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

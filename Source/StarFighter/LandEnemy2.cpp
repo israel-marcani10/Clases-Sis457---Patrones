@@ -10,8 +10,8 @@ ALandEnemy2::ALandEnemy2()
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	MoveLandShip->InitialSpeed = 60.0f;
-	MoveLandShip->MaxSpeed = 60.0f;
+	MoveLandShip->InitialSpeed = 60.0f; // velocidad cambiada
+	MoveLandShip->MaxSpeed = 60.0f; // max vel cambiada
 }
 
 void ALandEnemy2::Fire()
@@ -28,5 +28,5 @@ void ALandEnemy2::destroyEnemyAirShip()
 void ALandEnemy2::BeginPlay()
 {
 	Super::BeginPlay();
-	life = 30.0f;
+	life = 30.0f; // inicializando vida
 }

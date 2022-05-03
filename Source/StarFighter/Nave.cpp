@@ -16,7 +16,6 @@ ANave::ANave()
 	// creando las propiedades
 	ShipMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	ShipParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Ship Particle"));
-	//CreateProjectile = CreateDefaultSubobject<USceneComponent>(TEXT("Create Projectile"));
 	ShipCollision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Ship Collision"));
 	ShipExplosion = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Ship Explosion"));
 	DeathExplosionSound = CreateDefaultSubobject<UAudioComponent>(TEXT("DeadtExplosionSound"));
@@ -24,7 +23,6 @@ ANave::ANave()
 	// atachando las propiedades al componente ruta
 	ShipMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	ShipParticle->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	//CreateProjectile->SetupAttachment(RootComponent);
 	ShipCollision->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	ShipExplosion->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	DeathExplosionSound->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
@@ -35,7 +33,7 @@ void ANave::BeginPlay()
 {
 	Super::BeginPlay();
 
-	ShipExplosion->Deactivate(); // explision desactivado
+	ShipExplosion->Deactivate(); // explosion desactivado
 	DeathExplosionSound->Deactivate(); // desactivamos el sonido de explosion al iniciar
 }
 

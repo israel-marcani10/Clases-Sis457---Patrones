@@ -21,7 +21,7 @@ public:
 	UPROPERTY(EditAnywhere)
 		class UProjectileMovementComponent* MoveLandShip;
 	UPROPERTY(EditAnywhere)
-		float life; // vida
+		float life; // Vida
 
 	// metodo para destruir la nave
 	virtual void  destroyLandEnemy();

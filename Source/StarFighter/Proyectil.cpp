@@ -19,19 +19,19 @@ AProyectil::AProyectil()
 	ProjectileMesh->SetStaticMesh(ProjectileMeshAsset.Object);
 	ProjectileMesh->SetupAttachment(RootComponent);
 	ProjectileMesh->BodyInstance.SetCollisionProfileName("Projectile");
-	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProyectil::OnHit);		// set up a notification for when this component hits something
+	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProyectil::OnHit); // notificación para cuando este componente toque algo
 	RootComponent = ProjectileMesh;
 
-	// Use a ProjectileMovementComponent to govern this projectile's movement
+	// Controlando el movimiento del proyectil
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
 	ProjectileMovement->UpdatedComponent = ProjectileMesh;
-	ProjectileMovement->InitialSpeed = 3000.f;
-	ProjectileMovement->MaxSpeed = 3000.f;
+	ProjectileMovement->InitialSpeed = 0.f; // velocidad por defecto
+	ProjectileMovement->MaxSpeed = 0.f; // max velocidad por defecto
 	ProjectileMovement->bRotationFollowsVelocity = true;
 	ProjectileMovement->bShouldBounce = false;
 	ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
 
-	// Die after 3 seconds by default
+	// Muere después de 3 segundos por defecto
 	InitialLifeSpan = 3.0f;
 }
 

@@ -17,6 +17,7 @@ class STARFIGHTER_API ALandEnemy2 : public ALandEnemy1
 public:
 	ALandEnemy2();
 
+	// propiedad unicas de nave terrestre enemiga 2 
 	UPROPERTY(EditAnywhere)
 		class UProjectileMovementComponent* Bala;
 	UPROPERTY(EditAnywhere)

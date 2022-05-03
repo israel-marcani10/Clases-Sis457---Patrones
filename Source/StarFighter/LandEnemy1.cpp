@@ -10,7 +10,7 @@ ALandEnemy1::ALandEnemy1()
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	// Use a ProjectileMovementComponent to govern this projectile's movement
+	// Controlamos algunas de las propiedades del objeto
 	MoveLandShip = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Move Air Ship"));
 	MoveLandShip->InitialSpeed = 50.0f;
 	MoveLandShip->MaxSpeed = 50.0f;
@@ -29,7 +29,7 @@ void ALandEnemy1::destroyLandEnemy()
 void ALandEnemy1::BeginPlay()
 {
 	Super::BeginPlay();
-	life = 20.0f;
+	life = 20.0f; // inicializando vida
 }
 
 void ALandEnemy1::Tick(float DeltaTime)

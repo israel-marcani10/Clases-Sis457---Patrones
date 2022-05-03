@@ -17,6 +17,10 @@ class STARFIGHTER_API ALightning : public AProyectil
 public:
 	ALightning();
 
+	// propiedades de bala
+	UPROPERTY(EditAnywhere)
+		float Damage; // daño de la bala
+	UPROPERTY(EditAnywhere)
+		float Color;
 
-	
 };

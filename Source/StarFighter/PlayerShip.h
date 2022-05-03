@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Cola.h"
 #include "Nave.h"
 #include "PlayerShip.generated.h"
 
@@ -13,6 +14,9 @@ UCLASS()
 class STARFIGHTER_API APlayerShip : public ANave
 {
 	GENERATED_BODY()
+
+	// creando cola para almacenar misiles
+	Cola<class AMissile*> ColaMissiles;
 
 public:
 	APlayerShip();
@@ -45,13 +49,14 @@ public:
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
 		FVector GunOffset;
 
-	/* How fast the weapon will fire */
+	// variable para saber que tan rapido dispara el arma
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
 		float FireRate;
-
+	// sonido del disparo
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 		class USoundBase* FireSound;
 	
+	// Nombres estáticos para enlaces de ejes y disparo
 	static const FName MoveHorizontalBinding;
 	static const FName MoveVerticalBinding;
 	static const FName FireBinding1;
@@ -63,12 +68,16 @@ public:
 	FVector Current_Location; // para la ubicacion actual
 	FVector New_Location; // para la nueva ubicacion
 
-	UFUNCTION()
-		void OnBeginOverlap(AActor* PlayerActor, AActor* OtherActor);
-
-	void Fire();
-	void FireWeapon(FVector FireDirection);
-	void ShotTimerExpired();
+	// metodos para el disparo de las 4 municiones diferentes
+	void Fire1();
+	void Fire2();
+	void Fire3();
+	void Fire4();
+	void FireWeapon1(FVector FireDirection);
+	void FireWeapon2(FVector FireDirection);
+	void FireWeapon3(FVector FireDirection);
+	void FireWeapon4(FVector FireDirection);
+	void ShotTimerExpired(); // manejador del temporizador del disparo
 
 	// metodos para el movimiento de la nave jugador
 	void MoveHorizontal(float AxisValue);
@@ -85,11 +94,10 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 private:
 
-	/* Flag to control firing  */
+	// bandera para controlar los disparos
 	uint32 bCanFire : 1;
 
-	/** Handle for efficient management of ShotTimerExpired timer */
-	FTimerHandle TimerHandle_ShotTimerExpired;
+	// Variable para una gestión eficiente del temporizador ShotTimerExpired
+	FTimerHandle TimerHandle_ShotTimerExpired; 
 
-	float Ammunition;
 };

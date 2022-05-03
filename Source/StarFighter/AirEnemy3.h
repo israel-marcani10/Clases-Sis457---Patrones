@@ -24,8 +24,9 @@ public:
 	UPROPERTY(EditAnywhere)
 		class UProjectileMovementComponent* Bomba;
 
-	// metodo para disparar
-	virtual void Fire();
+	// metodos para disparar
+	virtual void FireMisil();
+	virtual void FireBomba();
 	// metodo para destruir o explosion
 	virtual void destroyEnemyAirShip();
 

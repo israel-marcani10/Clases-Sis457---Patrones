@@ -14,22 +14,21 @@ class STARFIGHTER_API AProyectil : public AActor
 {
 	GENERATED_BODY()
 	
-public:	
-	// Sets default values for this actor's properties
+public:
 	AProyectil();
 
+	// propiedades de proyectil
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
-		UStaticMeshComponent* ProjectileMesh;
+		UStaticMeshComponent* ProjectileMesh; // malla
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
-		UProjectileMovementComponent* ProjectileMovement;
+		UProjectileMovementComponent* ProjectileMovement; // movimiento
 
 	UFUNCTION()
 		void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
-	/** Returns ProjectileMesh subobject **/
+	// implementando funciones inline 
 	FORCEINLINE UStaticMeshComponent* GetProjectileMesh() const { return ProjectileMesh; }
-	/** Returns ProjectileMovement subobject **/
 	FORCEINLINE UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
 
 protected:

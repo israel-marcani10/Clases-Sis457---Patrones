@@ -22,7 +22,7 @@ public:
 		class UProjectileMovementComponent* MoveAirShip; // movimiento de la nave
 	UPROPERTY(EditAnywhere)
 		float life; // vida de la nave
-	UPROPERTY(EditAnywhere, Category = "Particle")
+	UPROPERTY(EditAnywhere)
 		class UParticleSystem* ExplosionParticle;
 
 	// metodo para destruir o explosion

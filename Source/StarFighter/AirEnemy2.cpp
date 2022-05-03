@@ -10,8 +10,8 @@ AAirEnemy2::AAirEnemy2()
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	MoveAirShip->InitialSpeed = 70.0f;
-	MoveAirShip->MaxSpeed = 70.0f;
+	MoveAirShip->InitialSpeed = 70.0f; // velocida cambiado
+	MoveAirShip->MaxSpeed = 70.0f; // mac vel cambiada
 }
 
 void AAirEnemy2::Fire()
@@ -21,9 +21,7 @@ void AAirEnemy2::Fire()
 
 void AAirEnemy2::destroyEnemyAirShip()
 {
-	if (life <= 0.0f) {
-		this->Destroy();
-	}
+	Super::destroyEnemyAirShip();
 }
 
 void AAirEnemy2::BeginPlay()

@@ -17,15 +17,15 @@ class STARFIGHTER_API AAquaticEnemy1 : public ANave
 public:
 	AAquaticEnemy1();
 
-	// propiedad para hacer mover la nave acuatica enemiga
+	// propiedad de la nave acuatica enemiga
 	UPROPERTY(EditAnywhere)
-		class UProjectileMovementComponent* MoveAquaticShip;
+		class UProjectileMovementComponent* MoveAquaticShip; // mever
 	UPROPERTY(EditAnywhere)
-		class UProjectileMovementComponent* Torpedo;
+		class UProjectileMovementComponent* Torpedo; // munision
 	UPROPERTY(EditAnywhere)
-		class UProjectileMovementComponent* Bala;
+		class UProjectileMovementComponent* Bala; // munision
 	UPROPERTY(EditAnywhere)
-		float life;
+		float life; // vida
 
 	// metodo para disparar
 	virtual void Fire();

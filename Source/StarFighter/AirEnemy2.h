@@ -17,6 +17,7 @@ class STARFIGHTER_API AAirEnemy2 : public AAirEnemy1
 public:
 	AAirEnemy2();
 
+	// propiedad bala unica de la nave enemiga aerea
 	UPROPERTY(EditAnywhere)
 		class UProjectileMovementComponent* Bala;
 

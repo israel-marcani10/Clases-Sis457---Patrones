@@ -10,20 +10,21 @@ AAirEnemy3::AAirEnemy3()
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	MoveAirShip->InitialSpeed = 200.0f;
-	MoveAirShip->MaxSpeed = 200.0f;
+	MoveAirShip->InitialSpeed = 200.0f; // velocidad inicial cambiada
+	MoveAirShip->MaxSpeed = 200.0f; // max vel cambiada
 }
 
-void AAirEnemy3::Fire()
+void AAirEnemy3::FireMisil()
 {
+}
 
+void AAirEnemy3::FireBomba()
+{
 }
 
 void AAirEnemy3::destroyEnemyAirShip()
 {
-	if (life <= 0.0f) {
-		this->Destroy();
-	}
+	Super::destroyEnemyAirShip();
 }
 
 void AAirEnemy3::BeginPlay()
