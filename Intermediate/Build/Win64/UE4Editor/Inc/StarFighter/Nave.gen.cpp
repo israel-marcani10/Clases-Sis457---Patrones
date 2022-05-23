@@ -41,10 +41,6 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DefaulSceneRoot;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CreateProjectile_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CreateProjectile;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ShipParticle_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ShipParticle;
@@ -68,6 +64,18 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BulletSpawnPoint_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_BulletSpawnPoint;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Field_Width_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Field_Width;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Field_Height_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Field_Height;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaxVelocity_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_MaxVelocity;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -94,16 +102,8 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_DefaulSceneRoot = { "DefaulSceneRoot", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, DefaulSceneRoot), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_DefaulSceneRoot_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_DefaulSceneRoot_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_CreateProjectile_MetaData[] = {
-		{ "Category", "Nave" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Nave.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_CreateProjectile = { "CreateProjectile", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, CreateProjectile), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_CreateProjectile_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_CreateProjectile_MetaData)) };
-#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_ShipParticle_MetaData[] = {
-		{ "Category", "Nave" },
+		{ "Category", "Component" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Nave.h" },
 	};
@@ -111,7 +111,7 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_ShipParticle = { "ShipParticle", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, ShipParticle), Z_Construct_UClass_UParticleSystemComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_ShipParticle_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_ShipParticle_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_ShipExplosion_MetaData[] = {
-		{ "Category", "Nave" },
+		{ "Category", "Component" },
 		{ "Comment", "// para el propulsor\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Nave.h" },
@@ -121,7 +121,7 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_ShipExplosion = { "ShipExplosion", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, ShipExplosion), Z_Construct_UClass_UParticleSystemComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_ShipExplosion_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_ShipExplosion_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_ShipMesh_MetaData[] = {
-		{ "Category", "Nave" },
+		{ "Category", "Component" },
 		{ "Comment", "// para la explosion\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Nave.h" },
@@ -131,7 +131,7 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_ShipMesh = { "ShipMesh", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, ShipMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_ShipMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_ShipMesh_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_ShipCollision_MetaData[] = {
-		{ "Category", "Nave" },
+		{ "Category", "Component" },
 		{ "Comment", "// la malla o cascara\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Nave.h" },
@@ -141,7 +141,7 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_ShipCollision = { "ShipCollision", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, ShipCollision), Z_Construct_UClass_UCapsuleComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_ShipCollision_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_ShipCollision_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_DeathExplosionSound_MetaData[] = {
-		{ "Category", "Nave" },
+		{ "Category", "Component" },
 		{ "Comment", "// para colisiones \n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Nave.h" },
@@ -151,7 +151,7 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_DeathExplosionSound = { "DeathExplosionSound", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, DeathExplosionSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_DeathExplosionSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_DeathExplosionSound_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_BulletSpawnPoint_MetaData[] = {
-		{ "Category", "Nave" },
+		{ "Category", "Component" },
 		{ "Comment", "// sonido de muerte\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Nave.h" },
@@ -159,15 +159,44 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_BulletSpawnPoint = { "BulletSpawnPoint", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, BulletSpawnPoint), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_BulletSpawnPoint_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_BulletSpawnPoint_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_Field_Width_MetaData[] = {
+		{ "Category", "Nave" },
+		{ "Comment", "// tama?o del campo de juego\n" },
+		{ "ModuleRelativePath", "Nave.h" },
+		{ "ToolTip", "tama?o del campo de juego" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_Field_Width = { "Field_Width", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, Field_Width), METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_Field_Width_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_Field_Width_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_Field_Height_MetaData[] = {
+		{ "Category", "Nave" },
+		{ "Comment", "// ancho del campo\n" },
+		{ "ModuleRelativePath", "Nave.h" },
+		{ "ToolTip", "ancho del campo" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_Field_Height = { "Field_Height", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, Field_Height), METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_Field_Height_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_Field_Height_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_MaxVelocity_MetaData[] = {
+		{ "Category", "Nave" },
+		{ "Comment", "// propiedad velocidad maxima de la nave\n" },
+		{ "ModuleRelativePath", "Nave.h" },
+		{ "ToolTip", "propiedad velocidad maxima de la nave" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_MaxVelocity = { "MaxVelocity", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, MaxVelocity), METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_MaxVelocity_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_MaxVelocity_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANave_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_DefaulSceneRoot,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_CreateProjectile,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_ShipParticle,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_ShipExplosion,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_ShipMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_ShipCollision,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_DeathExplosionSound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_BulletSpawnPoint,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_Field_Width,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_Field_Height,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_MaxVelocity,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ANave_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ANave>::IsAbstract,
@@ -196,7 +225,7 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANave, 3835732205);
+	IMPLEMENT_CLASS(ANave, 1348472485);
 	template<> STARFIGHTER_API UClass* StaticClass<ANave>()
 	{
 		return ANave::StaticClass();

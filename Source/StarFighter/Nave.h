@@ -22,16 +22,33 @@ public:
 	// Propiedades de la nave padre
 	UPROPERTY(EditAnywhere)
 		USceneComponent* DefaulSceneRoot;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Component")
 		UParticleSystemComponent* ShipParticle; // para el propulsor
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Component")
 		UParticleSystemComponent* ShipExplosion; // para la explosion
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Component")
 		UStaticMeshComponent* ShipMesh; // la malla o cascara
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Component")
 		UCapsuleComponent* ShipCollision; // para colisiones 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Component")
 		UAudioComponent* DeathExplosionSound; // sonido de muerte
+	UPROPERTY(EditAnywhere, Category = "Component")
+		USceneComponent* BulletSpawnPoint;
+
+		// tamaño del campo de juego
+	UPROPERTY(EditAnywhere)
+		float Field_Width; // ancho del campo
+	UPROPERTY(EditAnywhere)
+		float Field_Height; // altura del campo
+
+	// propiedad velocidad maxima de la nave
+	UPROPERTY(EditAnywhere)
+		float MaxVelocity;
+
+
+	// variables tipo vector para la nave 
+	FVector Current_Location; // para la ubicacion actual
+	FVector New_Location; // para la nueva ubicacion
 
 	// velocidad actual en X y Y de la nave
 	float Current_X_Velocity = 0.0f;

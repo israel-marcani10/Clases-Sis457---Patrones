@@ -4,21 +4,17 @@
 #include "PlayerShip.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundBase.h"
-#include "Bullet.h"
-#include "Lightning.h"
-#include "Missile.h"
-#include "Bomb.h"
-#include "Cola.h"
 #include "Engine/World.h"
+#include "Bullet1.h"
+#include "Bullet2.h"
+#include "MyCapsule.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
 const FName APlayerShip::MoveHorizontalBinding("MoveHorizontal");
 const FName APlayerShip::MoveVerticalBinding("MoveVertical");
-const FName APlayerShip::FireBinding1("Bullet");
-const FName APlayerShip::FireBinding2("Lightning");
-const FName APlayerShip::FireBinding3("Missile");
-const FName APlayerShip::FireBinding4("Bomb");
+const FName APlayerShip::FireBinding1("Bullet1");
+const FName APlayerShip::FireBinding2("Bullet2");
 
 APlayerShip::APlayerShip()
 {
@@ -31,38 +27,21 @@ APlayerShip::APlayerShip()
 
 	// Weapon
 	GunOffset = FVector(90.f, 0.f, 0.f);
-	FireRate = 0.1f; // la velocidad del disparo
+	FireRate = 2.1f; // la velocidad del disparo
 	bCanFire = false; // bandera si o no disparar
 
-	// creando el objeto para meter a nuestra colita
-	const FVector MoveDirection = FVector(1.f, 0.f, 0.f).GetClampedToMaxSize(1.0f);
-	const FRotator FireRotation = MoveDirection.Rotation();
-	const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
-	UWorld* const World = GetWorld();
-	if (World != nullptr)
-	{
-		// metiendo objetos de tipo misil a la cola
-		ColaMissiles.Push(World->SpawnActor<AMissile>(SpawnLocation, FireRotation));
-		ColaMissiles.Push(World->SpawnActor<AMissile>(SpawnLocation, FireRotation));
-		ColaMissiles.Push(World->SpawnActor<AMissile>(SpawnLocation, FireRotation));
-		ColaMissiles.Push(World->SpawnActor<AMissile>(SpawnLocation, FireRotation));
-		ColaMissiles.Push(World->SpawnActor<AMissile>(SpawnLocation, FireRotation));
-	}
 
+	MaxVelocity = 300.0f; // velocidad maxima
+	Max_Health = 100.0f; // salud maxima
+	Max_Armor = 100.0f; // armadura maxima
+
+	ShipInventory = CreateDefaultSubobject<UInventoryComponent>("MyInventory");
 }
 
 void APlayerShip::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// tomamos la ubicacion actual de la nave jugador
-	Current_Location = this->GetActorLocation();
-
-	MaxVelocity = 300.0f; // velocidad maxima
-	Max_Health = 100.0f; // salud maxima
-	Current_Health = 100.0f; // salud actual
-	Max_Armor = 100.0f; // armadura maxima
-	Current_Armor = 100.0f; // armadura actual
 }
 
 void APlayerShip::Tick(float DeltaTime)
@@ -79,15 +58,9 @@ void APlayerShip::Tick(float DeltaTime)
 		Current_Location = New_Location;
 	}
 
-	// limitando el campo de juego
-	if (this->GetActorLocation().X > Field_Width)
-		Current_Location = FVector(Field_Width - 1, Current_Location.Y, Current_Location.Z);
-	if (this->GetActorLocation().X < -Field_Width)
-		Current_Location = FVector(-Field_Width + 1, Current_Location.Y, Current_Location.Z);
-	if (this->GetActorLocation().Y > Field_Height)
-		Current_Location = FVector(Current_Location.X, Field_Height - 1, Current_Location.Z);
-	if (this->GetActorLocation().Y < -Field_Height)
-		Current_Location = FVector(Current_Location.X, -Field_Height + 1, Current_Location.Z);
+	if (Max_Health <= 0.f) {
+		this->Destroy();
+	}
 }
 
 void APlayerShip::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -99,8 +72,6 @@ void APlayerShip::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAxis(MoveVerticalBinding, this, &APlayerShip::MoveVertical);
 	InputComponent->BindAction(FireBinding1, IE_Pressed, this, &APlayerShip::Fire1);
 	InputComponent->BindAction(FireBinding2, IE_Pressed, this, &APlayerShip::Fire2);
-	InputComponent->BindAction(FireBinding3, IE_Pressed, this, &APlayerShip::Fire3);
-	InputComponent->BindAction(FireBinding4, IE_Pressed, this, &APlayerShip::Fire4);
 }
 
 void APlayerShip::MoveHorizontal(float AxisValue)
@@ -112,34 +83,25 @@ void APlayerShip::MoveVertical(float AxisValue)
 {
 	Current_Y_Velocity = MaxVelocity * AxisValue;
 }
-
-void APlayerShip::Fire1()
-{
+void APlayerShip::Fire1() {
 	bCanFire = true;
-	const FVector FireDirection = FVector(1.0, 0.0, 0.f).GetClampedToMaxSize(1.0f);
-
+	UE_LOG(LogTemp, Warning, TEXT("Se presiono la barra espaciadora"));
+	// Create fire direction vector
+	const FVector FireDirection = FVector(1.f, 0.f, 0.f).GetClampedToMaxSize(1.0f);
+	//const FVector FireDirection = GetActorLocation();
+	// Try and fire a shot
 	FireWeapon1(FireDirection);
 }
 void APlayerShip::Fire2()
 {
 	bCanFire = true;
-	const FVector FireDirection = FVector(1.0, 0.0, 0.f).GetClampedToMaxSize(1.0f);
+	UE_LOG(LogTemp, Warning, TEXT("Se presiono la barra espaciadora"));
+	// Create fire direction vector
 
-	FireWeapon2(FireDirection);
-}
-void APlayerShip::Fire3()
-{
-	bCanFire = true;
-	const FVector FireDirection = FVector(1.0, 0.0, 0.f).GetClampedToMaxSize(1.0f);
-
-	FireWeapon3(FireDirection);
-}
-void APlayerShip::Fire4()
-{
-	bCanFire = true;
-	const FVector FireDirection = FVector(1.0, 0.0, 0.f).GetClampedToMaxSize(1.0f);
-
-	FireWeapon4(FireDirection);
+	const FVector FireDirection = FVector(1.f, 0.f, 0.f).GetClampedToMaxSize(1.0f);
+	//const FVector FireDirection = GetActorLocation();
+	// Try and fire a shot
+	FireWeapon1(FireDirection);
 }
 void APlayerShip::FireWeapon1(FVector FireDirection)
 {
@@ -147,74 +109,42 @@ void APlayerShip::FireWeapon1(FVector FireDirection)
 		const FRotator FireRotation = FireDirection.Rotation();
 		// Spawn projectile at an offset from this pawn
 		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
-		
+
 		UWorld* const World = GetWorld();
 		if (World != nullptr) {
-			// generando el proyectil
-			World->SpawnActor<ABullet>(SpawnLocation, FireRotation);
+			// spawn the projectile
+			World->SpawnActor<ABullet1>(SpawnLocation, FireRotation);
 		}
+
 		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
 
 		if (FireSound != nullptr)
+		{
 			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-		
+		}
 		bCanFire = false;
 	}
 }
+
 void APlayerShip::FireWeapon2(FVector FireDirection)
 {
 	if (bCanFire == true) {
 		const FRotator FireRotation = FireDirection.Rotation();
+		// Spawn projectile at an offset from this pawn
 		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
 
 		UWorld* const World = GetWorld();
 		if (World != nullptr) {
-			// generando el proyectil
-			World->SpawnActor<ALightning>(SpawnLocation, FireRotation);
+			// spawn the projectile
+			World->SpawnActor<ABullet2>(SpawnLocation, FireRotation);
 		}
+
 		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
 
 		if (FireSound != nullptr)
+		{
 			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-
-		bCanFire = false;
-	}
-}
-void APlayerShip::FireWeapon3(FVector FireDirection)
-{
-	if (bCanFire == true) {
-		const FRotator FireRotation = FireDirection.Rotation();
-		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
-
-		UWorld* const World = GetWorld();
-		if (World != nullptr) {
-			// generando el proyectil
-			World->SpawnActor<AMissile>(SpawnLocation, FireRotation);
 		}
-		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
-
-		if (FireSound != nullptr)
-			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-
-		bCanFire = false;
-	}
-}
-void APlayerShip::FireWeapon4(FVector FireDirection)
-{
-	if (bCanFire == true) {
-		const FRotator FireRotation = FireDirection.Rotation();
-		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
-
-		UWorld* const World = GetWorld();
-		if (World != nullptr) {
-			// generando el proyectil
-			World->SpawnActor<ABomb>(SpawnLocation, FireRotation);
-		}
-		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
-
-		if (FireSound != nullptr)
-			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-
 		bCanFire = false;
 	}
 }
@@ -222,4 +152,60 @@ void APlayerShip::FireWeapon4(FVector FireDirection)
 void APlayerShip::ShotTimerExpired()
 {
 	bCanFire = true;
+}
+
+// metodo para recoger capsulas al inventario del jugador
+void APlayerShip::TakeItem(AMyCapsule* InventoryItem)
+{
+	InventoryItem->PickUp();
+	ShipInventory->AddToInventory(InventoryItem);
+}
+// metodo para eliminar capsulas del inventario del jugador
+void APlayerShip::DropItem()
+{
+	if (ShipInventory->CurrentInventory.Num() == 0)
+	{
+		return;
+	}
+	AMyCapsule* Item = ShipInventory->CurrentInventory.Last();
+	ShipInventory->RemoveFromInventory(Item);
+	//should probably use scaled bounding box
+	FVector ItemOrigin;
+	FVector ItemBounds;
+	Item->GetActorBounds(false, ItemOrigin, ItemBounds);
+	FTransform PutDownLocation = GetTransform() + FTransform(RootComponent->GetForwardVector() * ItemBounds.GetMax());
+	Item->PutDown(PutDownLocation);
+}
+
+void APlayerShip::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved,
+	FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
+{
+	AMyCapsule* CapsuleItem = Cast<AMyCapsule>(Other);
+
+	if (CapsuleItem->GetNombre() == "IncreVelocity") {
+		TakeItem(CapsuleItem);
+		MaxVelocity += 300.f;
+	}
+	if (CapsuleItem->GetNombre() == "DecreVelocity") {
+		TakeItem(CapsuleItem);
+		MaxVelocity -= 200.f;
+	}
+	if (CapsuleItem->GetNombre() == "IncreLives") {
+		TakeItem(CapsuleItem);
+		Max_Health += 50.f;
+	}
+	if (CapsuleItem->GetNombre() == "DecreLives") {
+		TakeItem(CapsuleItem);
+		Max_Health -= 50.f;
+	}
+	if (CapsuleItem->GetNombre() == "IncreWeapon") {
+		TakeItem(CapsuleItem);
+		FireRate -= 1.f;
+	}
+	if (CapsuleItem->GetNombre() == "DecreWeapon") {
+		TakeItem(CapsuleItem);
+		bCanFire = false;
+		FTimerHandle Timer;
+		GetWorldTimerManager().SetTimer(Timer, this, &APlayerShip::Fire1, 10.f);
+	}
 }

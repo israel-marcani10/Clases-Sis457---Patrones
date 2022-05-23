@@ -4,10 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "GameFramework/ProjectileMovementComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "Proyectil.generated.h"
 
-class UProjectileMovementComponent;
-class UStaticMeshComponent;
 
 UCLASS()
 class STARFIGHTER_API AProyectil : public AActor

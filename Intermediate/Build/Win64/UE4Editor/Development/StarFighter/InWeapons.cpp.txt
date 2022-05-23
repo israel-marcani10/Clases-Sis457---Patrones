@@ -1,0 +1,5 @@
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Development\StarFighter\Definitions.StarFighter.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\InWeapons.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\MyCapsule.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\MyCapsule.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\InWeapons.generated.h

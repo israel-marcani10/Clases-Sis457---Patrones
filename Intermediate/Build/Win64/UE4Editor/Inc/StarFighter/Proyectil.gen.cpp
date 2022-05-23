@@ -103,7 +103,9 @@ void EmptyLinkFunctionForGeneratedCodeProyectil() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AProyectil_OnHit_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// movimiento\n" },
 		{ "ModuleRelativePath", "Proyectil.h" },
+		{ "ToolTip", "movimiento" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AProyectil_OnHit_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AProyectil, nullptr, "OnHit", nullptr, nullptr, sizeof(Proyectil_eventOnHit_Parms), Z_Construct_UFunction_AProyectil_OnHit_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AProyectil_OnHit_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00C20401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AProyectil_OnHit_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AProyectil_OnHit_Statics::Function_MetaDataParams)) };
@@ -144,7 +146,7 @@ void EmptyLinkFunctionForGeneratedCodeProyectil() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_StarFighter,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AProyectil_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AProyectil_OnHit, "OnHit" }, // 769144958
+		{ &Z_Construct_UFunction_AProyectil_OnHit, "OnHit" }, // 622629017
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProyectil_Statics::Class_MetaDataParams[] = {
@@ -156,8 +158,10 @@ void EmptyLinkFunctionForGeneratedCodeProyectil() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProyectil_Statics::NewProp_ProjectileMesh_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+		{ "Comment", "// propiedades de proyectil\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Proyectil.h" },
+		{ "ToolTip", "propiedades de proyectil" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProyectil_Statics::NewProp_ProjectileMesh = { "ProjectileMesh", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProyectil, ProjectileMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProyectil_Statics::NewProp_ProjectileMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProyectil_Statics::NewProp_ProjectileMesh_MetaData)) };
@@ -165,8 +169,10 @@ void EmptyLinkFunctionForGeneratedCodeProyectil() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProyectil_Statics::NewProp_ProjectileMovement_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+		{ "Comment", "// malla\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Proyectil.h" },
+		{ "ToolTip", "malla" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProyectil_Statics::NewProp_ProjectileMovement = { "ProjectileMovement", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProyectil, ProjectileMovement), Z_Construct_UClass_UProjectileMovementComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProyectil_Statics::NewProp_ProjectileMovement_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProyectil_Statics::NewProp_ProjectileMovement_MetaData)) };
@@ -201,7 +207,7 @@ void EmptyLinkFunctionForGeneratedCodeProyectil() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AProyectil, 1274601099);
+	IMPLEMENT_CLASS(AProyectil, 1052461376);
 	template<> STARFIGHTER_API UClass* StaticClass<AProyectil>()
 	{
 		return AProyectil::StaticClass();

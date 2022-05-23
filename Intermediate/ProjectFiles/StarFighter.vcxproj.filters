@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\StarFighter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{2A80EB1F-5C27-4FC1-8BA8-F35AE080D532}</UniqueIdentifier>
+      <UniqueIdentifier>{266305D6-A912-4E57-825B-3871DBE5D0D1}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\StarFighter.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{D25D0CA4-DB33-4825-8D1C-0DABF76AE82E}</UniqueIdentifier>
+      <UniqueIdentifier>{B500AA5B-8F8E-4E89-9C95-E6F1DE1BAC06}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,42 +29,24 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\StarFighter">
-      <UniqueIdentifier>{86E3DBE0-C6D8-4830-A61C-E622E9228B5E}</UniqueIdentifier>
+      <UniqueIdentifier>{EF955978-5497-4BE8-82BA-E1404A1BB5B6}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\StarFighter\AirEnemy1.cpp">
+    <ClCompile Include="..\..\Source\StarFighter\Bullet1.cpp">
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\AirEnemy1.h">
+    <ClInclude Include="..\..\Source\StarFighter\Bullet1.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\AirEnemy2.cpp">
+    <ClCompile Include="..\..\Source\StarFighter\Bullet2.cpp">
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\AirEnemy2.h">
+    <ClInclude Include="..\..\Source\StarFighter\Bullet2.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\AirEnemy3.cpp">
+    <ClCompile Include="..\..\Source\StarFighter\BulletEnemy.cpp">
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\AirEnemy3.h">
-      <Filter>Source\StarFighter</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\AquaticEnemy1.cpp">
-      <Filter>Source\StarFighter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\AquaticEnemy1.h">
-      <Filter>Source\StarFighter</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\Bomb.cpp">
-      <Filter>Source\StarFighter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\Bomb.h">
-      <Filter>Source\StarFighter</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\Bullet.cpp">
-      <Filter>Source\StarFighter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\Bullet.h">
+    <ClInclude Include="..\..\Source\StarFighter\BulletEnemy.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\StarFighter\Cola.cpp">
@@ -73,28 +55,52 @@
     <ClInclude Include="..\..\Source\StarFighter\Cola.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\LandEnemy1.cpp">
+    <ClCompile Include="..\..\Source\StarFighter\CreateCapsules.cpp">
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\LandEnemy1.h">
+    <ClInclude Include="..\..\Source\StarFighter\CreateCapsules.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\LandEnemy2.cpp">
+    <ClCompile Include="..\..\Source\StarFighter\CreateEnemy.cpp">
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\LandEnemy2.h">
+    <ClInclude Include="..\..\Source\StarFighter\CreateEnemy.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\Lightning.cpp">
+    <ClCompile Include="..\..\Source\StarFighter\Enemy1.cpp">
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\Lightning.h">
+    <ClInclude Include="..\..\Source\StarFighter\Enemy1.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\Missile.cpp">
+    <ClCompile Include="..\..\Source\StarFighter\Enemy2.cpp">
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\Missile.h">
+    <ClInclude Include="..\..\Source\StarFighter\Enemy2.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\Enemy3.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\Enemy3.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\EnemyShip.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\EnemyShip.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\InventoryComponent.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\InventoryComponent.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\MyCapsule.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\MyCapsule.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\StarFighter\Nave.cpp">
@@ -130,6 +136,5 @@
     <ClInclude Include="..\..\Source\StarFighter\StarFighterGameModeBase.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
-    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
