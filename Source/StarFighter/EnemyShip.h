@@ -22,7 +22,7 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Component")
 		float life; // vida de la nave
 	UPROPERTY(EditAnywhere, Category = "Component")
-		class UParticleSystem* ExplosionParticle;
+		UParticleSystem* ShipExplosionEnemy; // para la explosion
 
 	// metodo para destruir o explosion
 	void ExplodeAndDestroy();
@@ -37,8 +37,12 @@ public:
 	FVector MoveDirection;
 	FVector Movement;
 	FRotator NewRotation;
-private:
-	const float MaxShootCoolDown = 2.0f;
-	float ShootCoolDown = 0.0f;
-	FVector GunOffset;
+protected:
+	float TimeToSpawnShoot;
+	float ShootTime;
+	FVector DistanceShoot;
+	int ContadorBalas;
+	float Tiempo;
+	bool ValueIf;
+
 };

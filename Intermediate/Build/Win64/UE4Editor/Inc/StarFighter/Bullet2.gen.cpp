@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeBullet2() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ABullet2, 2338680679);
+	IMPLEMENT_CLASS(ABullet2, 6756649);
 	template<> STARFIGHTER_API UClass* StaticClass<ABullet2>()
 	{
 		return ABullet2::StaticClass();

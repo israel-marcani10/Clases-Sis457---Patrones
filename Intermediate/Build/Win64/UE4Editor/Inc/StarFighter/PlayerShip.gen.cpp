@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	STARFIGHTER_API UClass* Z_Construct_UClass_AMyCapsule_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	STARFIGHTER_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
 // End Cross Module References
@@ -220,6 +221,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ShipExplosionPlayer_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ShipExplosionPlayer;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Max_Health_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Max_Health;
@@ -276,6 +281,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 		{ "ModuleRelativePath", "PlayerShip.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerShip_Statics::NewProp_ShipExplosionPlayer_MetaData[] = {
+		{ "Category", "Component" },
+		{ "ModuleRelativePath", "PlayerShip.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayerShip_Statics::NewProp_ShipExplosionPlayer = { "ShipExplosionPlayer", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerShip, ShipExplosionPlayer), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayerShip_Statics::NewProp_ShipExplosionPlayer_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerShip_Statics::NewProp_ShipExplosionPlayer_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerShip_Statics::NewProp_Max_Health_MetaData[] = {
 		{ "Category", "PlayerShip" },
@@ -358,6 +370,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayerShip_Statics::NewProp_ShipInventory = { "ShipInventory", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayerShip, ShipInventory), Z_Construct_UClass_UInventoryComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayerShip_Statics::NewProp_ShipInventory_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayerShip_Statics::NewProp_ShipInventory_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerShip_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_ShipExplosionPlayer,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_Max_Health,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_Current_Health,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerShip_Statics::NewProp_Max_Armor,
@@ -395,7 +408,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerShip() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayerShip, 3737196960);
+	IMPLEMENT_CLASS(APlayerShip, 934634806);
 	template<> STARFIGHTER_API UClass* StaticClass<APlayerShip>()
 	{
 		return APlayerShip::StaticClass();

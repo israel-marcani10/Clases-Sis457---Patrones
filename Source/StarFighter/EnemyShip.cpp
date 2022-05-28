@@ -11,17 +11,15 @@ AEnemyShip::AEnemyShip()
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	MaxVelocity = 50.f;
-
-	GunOffset = FVector(90.f, 0.f, 0.f);
+	MaxVelocity = 10.f;
 }
 
 // metodo para la destruccion de la nave aerea enemiga
 void AEnemyShip::ExplodeAndDestroy()
 {
-	if (ExplosionParticle)
+	if (ShipExplosionEnemy)
 	{
-		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ExplosionParticle, GetActorTransform());
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ShipExplosionEnemy, GetActorTransform());
 	}
 
 	Destroy();
@@ -39,7 +37,7 @@ void AEnemyShip::Tick(float DeltaTime)
 
 	srand(time(NULL));
 	MovementY = rand() % 5 - 1;
-	MaxVelocity = 50;
+	MaxVelocity = 10.f;
 
 	if (aux) {
 		if (this->GetActorLocation().Y < Field_Height) {
@@ -74,22 +72,4 @@ void AEnemyShip::Tick(float DeltaTime)
 		this->Destroy();
 	}
 
-
-	ShootCoolDown += DeltaTime;
-	if (ShootCoolDown >= MaxShootCoolDown)
-	{
-		ShootCoolDown = 0.0f;
-		const FVector FireDirection = FVector(-1.f, 0.f, 0.f).GetClampedToMaxSize(1.0f);
-		const FRotator FireRotation = FireDirection.Rotation();
-
-		FVector Location = BulletSpawnPoint->GetComponentLocation();
-		FRotator Rotation = BulletSpawnPoint->GetComponentRotation();
-		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
-
-		UWorld* const World = GetWorld();
-		if (World != nullptr) {
-			// generando el proyectil
-			World->SpawnActor<ABulletEnemy>(SpawnLocation, FireRotation);
-		}
-	}
 }

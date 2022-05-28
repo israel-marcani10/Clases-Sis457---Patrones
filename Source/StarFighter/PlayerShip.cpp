@@ -25,11 +25,8 @@ APlayerShip::APlayerShip()
 	static ConstructorHelpers::FObjectFinder<USoundBase> FireAudio(TEXT("SoundWave'/Game/SFX/laser.laser'"));
 	FireSound = FireAudio.Object;
 
-	// Weapon
+	// distancia a spawnear la bala de la nave
 	GunOffset = FVector(90.f, 0.f, 0.f);
-	FireRate = 2.1f; // la velocidad del disparo
-	bCanFire = false; // bandera si o no disparar
-
 
 	MaxVelocity = 300.0f; // velocidad maxima
 	Max_Health = 100.0f; // salud maxima
@@ -70,8 +67,8 @@ void APlayerShip::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	// conectando con el unreal para el manejo de las teclas
 	PlayerInputComponent->BindAxis(MoveHorizontalBinding, this, &APlayerShip::MoveHorizontal);
 	PlayerInputComponent->BindAxis(MoveVerticalBinding, this, &APlayerShip::MoveVertical);
-	InputComponent->BindAction(FireBinding1, IE_Pressed, this, &APlayerShip::Fire1);
-	InputComponent->BindAction(FireBinding2, IE_Pressed, this, &APlayerShip::Fire2);
+	InputComponent->BindAction(FireBinding1, IE_Pressed, this, &APlayerShip::FireShoot1);
+	InputComponent->BindAction(FireBinding2, IE_Pressed, this, &APlayerShip::FireShoot2);
 }
 
 void APlayerShip::MoveHorizontal(float AxisValue)
@@ -83,75 +80,59 @@ void APlayerShip::MoveVertical(float AxisValue)
 {
 	Current_Y_Velocity = MaxVelocity * AxisValue;
 }
-void APlayerShip::Fire1() {
-	bCanFire = true;
-	UE_LOG(LogTemp, Warning, TEXT("Se presiono la barra espaciadora"));
-	// Create fire direction vector
-	const FVector FireDirection = FVector(1.f, 0.f, 0.f).GetClampedToMaxSize(1.0f);
-	//const FVector FireDirection = GetActorLocation();
-	// Try and fire a shot
-	FireWeapon1(FireDirection);
-}
-void APlayerShip::Fire2()
+
+void APlayerShip::FireShoot1()
 {
-	bCanFire = true;
-	UE_LOG(LogTemp, Warning, TEXT("Se presiono la barra espaciadora"));
-	// Create fire direction vector
+	const FVector FireDirection = FVector(1.f, 0.f, 0.f);
+	const FRotator FireRotation = FireDirection.Rotation();
+	const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
 
-	const FVector FireDirection = FVector(1.f, 0.f, 0.f).GetClampedToMaxSize(1.0f);
-	//const FVector FireDirection = GetActorLocation();
-	// Try and fire a shot
-	FireWeapon1(FireDirection);
-}
-void APlayerShip::FireWeapon1(FVector FireDirection)
-{
-	if (bCanFire == true) {
-		const FRotator FireRotation = FireDirection.Rotation();
-		// Spawn projectile at an offset from this pawn
-		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+	UWorld* const World = GetWorld();
+	if (World != nullptr) 
+		World->SpawnActor<ABullet1>(SpawnLocation, FireRotation);
+	
 
-		UWorld* const World = GetWorld();
-		if (World != nullptr) {
-			// spawn the projectile
-			World->SpawnActor<ABullet1>(SpawnLocation, FireRotation);
-		}
-
-		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
-
+	//World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
+	/*
 		if (FireSound != nullptr)
 		{
 			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-		}
-		bCanFire = false;
-	}
+		}*/
 }
-
-void APlayerShip::FireWeapon2(FVector FireDirection)
+void APlayerShip::FireShoot2()
 {
-	if (bCanFire == true) {
-		const FRotator FireRotation = FireDirection.Rotation();
-		// Spawn projectile at an offset from this pawn
-		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+	const FVector FireDirection = FVector(1.f, 0.f, 0.f).GetClampedToMaxSize(1.0f);
+	const FRotator FireRotation = FireDirection.Rotation();
+	// Spawn projectile at an offset from this pawn
+	const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
 
-		UWorld* const World = GetWorld();
-		if (World != nullptr) {
-			// spawn the projectile
-			World->SpawnActor<ABullet2>(SpawnLocation, FireRotation);
-		}
+	//FVector Location = BulletSpawnPoint->GetComponentLocation();
+	//FRotator Rotation = FireDirection.Rotation();
 
-		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
+	UWorld* const World = GetWorld();
+	if (World != nullptr) {
+		// spawn the projectile
+		World->SpawnActor<ABullet2>(SpawnLocation, FireRotation);
+	}
 
+	//World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
+	/*
 		if (FireSound != nullptr)
 		{
 			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-		}
-		bCanFire = false;
-	}
+		}*/
 }
 
-void APlayerShip::ShotTimerExpired()
+
+// metodo para la destruccion de la nave jugador
+void APlayerShip::ExplodeAndDestroy()
 {
-	bCanFire = true;
+	if (ShipExplosionPlayer)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ShipExplosionPlayer, GetActorTransform());
+	}
+
+	Destroy();
 }
 
 // metodo para recoger capsulas al inventario del jugador
@@ -182,30 +163,31 @@ void APlayerShip::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimiti
 {
 	AMyCapsule* CapsuleItem = Cast<AMyCapsule>(Other);
 
-	if (CapsuleItem->GetNombre() == "IncreVelocity") {
-		TakeItem(CapsuleItem);
-		MaxVelocity += 300.f;
+	if (CapsuleItem) {
+		if (CapsuleItem->GetNombre() == "IncreVelocity") {
+			TakeItem(CapsuleItem);
+			MaxVelocity += 300.f;
+		}
+		if (CapsuleItem->GetNombre() == "DecreVelocity") {
+			TakeItem(CapsuleItem);
+			MaxVelocity -= 200.f;
+		}
+		if (CapsuleItem->GetNombre() == "IncreLives") {
+			TakeItem(CapsuleItem);
+			Max_Health += 50.f;
+		}
+		if (CapsuleItem->GetNombre() == "DecreLives") {
+			TakeItem(CapsuleItem);
+			Max_Health -= 50.f;
+		}
+		if (CapsuleItem->GetNombre() == "IncreWeapon") {
+			TakeItem(CapsuleItem);
+			FireRate -= 1.f;
+		}
+		if (CapsuleItem->GetNombre() == "DecreWeapon") {
+			TakeItem(CapsuleItem);
+			FireRate += 2.f;
+		}
 	}
-	if (CapsuleItem->GetNombre() == "DecreVelocity") {
-		TakeItem(CapsuleItem);
-		MaxVelocity -= 200.f;
-	}
-	if (CapsuleItem->GetNombre() == "IncreLives") {
-		TakeItem(CapsuleItem);
-		Max_Health += 50.f;
-	}
-	if (CapsuleItem->GetNombre() == "DecreLives") {
-		TakeItem(CapsuleItem);
-		Max_Health -= 50.f;
-	}
-	if (CapsuleItem->GetNombre() == "IncreWeapon") {
-		TakeItem(CapsuleItem);
-		FireRate -= 1.f;
-	}
-	if (CapsuleItem->GetNombre() == "DecreWeapon") {
-		TakeItem(CapsuleItem);
-		bCanFire = false;
-		FTimerHandle Timer;
-		GetWorldTimerManager().SetTimer(Timer, this, &APlayerShip::Fire1, 10.f);
-	}
+	
 }

@@ -16,4 +16,5 @@ class STARFIGHTER_API AEnemy2 : public AEnemyShip
 	
 public:
 	AEnemy2();
+	virtual void Tick(float DeltaTime) override;
 };

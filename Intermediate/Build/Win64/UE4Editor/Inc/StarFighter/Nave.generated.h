@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define STARFIGHTER_Nave_generated_h
 
-#define StarFighter_Source_StarFighter_Nave_h_16_SPARSE_DATA
-#define StarFighter_Source_StarFighter_Nave_h_16_RPC_WRAPPERS
-#define StarFighter_Source_StarFighter_Nave_h_16_RPC_WRAPPERS_NO_PURE_DECLS
-#define StarFighter_Source_StarFighter_Nave_h_16_INCLASS_NO_PURE_DECLS \
+#define StarFighter_Source_StarFighter_Nave_h_17_SPARSE_DATA
+#define StarFighter_Source_StarFighter_Nave_h_17_RPC_WRAPPERS
+#define StarFighter_Source_StarFighter_Nave_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define StarFighter_Source_StarFighter_Nave_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesANave(); \
 	friend struct Z_Construct_UClass_ANave_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(ANave)
 
 
-#define StarFighter_Source_StarFighter_Nave_h_16_INCLASS \
+#define StarFighter_Source_StarFighter_Nave_h_17_INCLASS \
 private: \
 	static void StaticRegisterNativesANave(); \
 	friend struct Z_Construct_UClass_ANave_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(ANave)
 
 
-#define StarFighter_Source_StarFighter_Nave_h_16_STANDARD_CONSTRUCTORS \
+#define StarFighter_Source_StarFighter_Nave_h_17_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ANave(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ANave) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define StarFighter_Source_StarFighter_Nave_h_16_ENHANCED_CONSTRUCTORS \
+#define StarFighter_Source_StarFighter_Nave_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ANave(ANave&&); \
@@ -58,28 +58,28 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ANave)
 
 
-#define StarFighter_Source_StarFighter_Nave_h_16_PRIVATE_PROPERTY_OFFSET
-#define StarFighter_Source_StarFighter_Nave_h_13_PROLOG
-#define StarFighter_Source_StarFighter_Nave_h_16_GENERATED_BODY_LEGACY \
+#define StarFighter_Source_StarFighter_Nave_h_17_PRIVATE_PROPERTY_OFFSET
+#define StarFighter_Source_StarFighter_Nave_h_14_PROLOG
+#define StarFighter_Source_StarFighter_Nave_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	StarFighter_Source_StarFighter_Nave_h_16_PRIVATE_PROPERTY_OFFSET \
-	StarFighter_Source_StarFighter_Nave_h_16_SPARSE_DATA \
-	StarFighter_Source_StarFighter_Nave_h_16_RPC_WRAPPERS \
-	StarFighter_Source_StarFighter_Nave_h_16_INCLASS \
-	StarFighter_Source_StarFighter_Nave_h_16_STANDARD_CONSTRUCTORS \
+	StarFighter_Source_StarFighter_Nave_h_17_PRIVATE_PROPERTY_OFFSET \
+	StarFighter_Source_StarFighter_Nave_h_17_SPARSE_DATA \
+	StarFighter_Source_StarFighter_Nave_h_17_RPC_WRAPPERS \
+	StarFighter_Source_StarFighter_Nave_h_17_INCLASS \
+	StarFighter_Source_StarFighter_Nave_h_17_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define StarFighter_Source_StarFighter_Nave_h_16_GENERATED_BODY \
+#define StarFighter_Source_StarFighter_Nave_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	StarFighter_Source_StarFighter_Nave_h_16_PRIVATE_PROPERTY_OFFSET \
-	StarFighter_Source_StarFighter_Nave_h_16_SPARSE_DATA \
-	StarFighter_Source_StarFighter_Nave_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	StarFighter_Source_StarFighter_Nave_h_16_INCLASS_NO_PURE_DECLS \
-	StarFighter_Source_StarFighter_Nave_h_16_ENHANCED_CONSTRUCTORS \
+	StarFighter_Source_StarFighter_Nave_h_17_PRIVATE_PROPERTY_OFFSET \
+	StarFighter_Source_StarFighter_Nave_h_17_SPARSE_DATA \
+	StarFighter_Source_StarFighter_Nave_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	StarFighter_Source_StarFighter_Nave_h_17_INCLASS_NO_PURE_DECLS \
+	StarFighter_Source_StarFighter_Nave_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

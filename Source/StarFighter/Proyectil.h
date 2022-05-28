@@ -18,14 +18,11 @@ public:
 	AProyectil();
 
 	// propiedades de proyectil
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement)
 		UStaticMeshComponent* ProjectileMesh; // malla
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement)
 		UProjectileMovementComponent* ProjectileMovement; // movimiento
-
-	UFUNCTION()
-		void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
 	// implementando funciones inline 
 	FORCEINLINE UStaticMeshComponent* GetProjectileMesh() const { return ProjectileMesh; }

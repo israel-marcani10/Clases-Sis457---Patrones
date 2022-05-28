@@ -16,8 +16,8 @@ ABullet2::ABullet2()
 	PrimaryActorTick.bCanEverTick = true;
 
 	// cambiando la velocidad de bala
-	ProjectileMovement->InitialSpeed = 2000.0f;
-	ProjectileMovement->MaxSpeed = 2000.0f;
+	ProjectileMovement->InitialSpeed = 1500.0f;
+	ProjectileMovement->MaxSpeed = 1500.0f;
 
 	// tiempo e vida de bala
 	InitialLifeSpan = 5.0f;

@@ -37,9 +37,9 @@ void EmptyLinkFunctionForGeneratedCodeEnemyShip() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_life;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ExplosionParticle_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ShipExplosionEnemy_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ExplosionParticle;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ShipExplosionEnemy;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -66,17 +66,17 @@ void EmptyLinkFunctionForGeneratedCodeEnemyShip() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AEnemyShip_Statics::NewProp_life = { "life", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemyShip, life), METADATA_PARAMS(Z_Construct_UClass_AEnemyShip_Statics::NewProp_life_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyShip_Statics::NewProp_life_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemyShip_Statics::NewProp_ExplosionParticle_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemyShip_Statics::NewProp_ShipExplosionEnemy_MetaData[] = {
 		{ "Category", "Component" },
 		{ "Comment", "// vida de la nave\n" },
 		{ "ModuleRelativePath", "EnemyShip.h" },
 		{ "ToolTip", "vida de la nave" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemyShip_Statics::NewProp_ExplosionParticle = { "ExplosionParticle", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemyShip, ExplosionParticle), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AEnemyShip_Statics::NewProp_ExplosionParticle_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyShip_Statics::NewProp_ExplosionParticle_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemyShip_Statics::NewProp_ShipExplosionEnemy = { "ShipExplosionEnemy", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemyShip, ShipExplosionEnemy), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AEnemyShip_Statics::NewProp_ShipExplosionEnemy_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyShip_Statics::NewProp_ShipExplosionEnemy_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemyShip_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyShip_Statics::NewProp_life,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyShip_Statics::NewProp_ExplosionParticle,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyShip_Statics::NewProp_ShipExplosionEnemy,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AEnemyShip_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AEnemyShip>::IsAbstract,
@@ -105,7 +105,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemyShip() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AEnemyShip, 3187840385);
+	IMPLEMENT_CLASS(AEnemyShip, 1641511144);
 	template<> STARFIGHTER_API UClass* StaticClass<AEnemyShip>()
 	{
 		return AEnemyShip::StaticClass();

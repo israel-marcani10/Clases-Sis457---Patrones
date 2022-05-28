@@ -4,10 +4,10 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UOb
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter/Enemy3.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\EnemyShip.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Nave.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticleSystemComponent.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticleSystem.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticlePerfStats.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ParticleSystem.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticleSystemComponent.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/Emitter.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Emitter.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ParticleSystemComponent.generated.h

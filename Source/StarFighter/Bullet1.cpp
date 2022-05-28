@@ -22,7 +22,7 @@ ABullet1::ABullet1()
 	ProjectileMovement->MaxSpeed = 2000.0f;
 
 	// tiempo e vida de bala
-	InitialLifeSpan = 5.0f;
+	InitialLifeSpan = 3.0f;
 }
 
 void ABullet1::NotifyActorBeginOverlap(AActor* OtherActor)
@@ -30,7 +30,7 @@ void ABullet1::NotifyActorBeginOverlap(AActor* OtherActor)
 	Super::NotifyActorBeginOverlap(OtherActor);
 
 	UE_LOG(LogTemp, Warning, TEXT("collect with %s"), *OtherActor->GetFName().ToString());
-	AEnemy2* Ememy = Cast<AEnemy2>(OtherActor);
+	AEnemyShip* Ememy = Cast<AEnemyShip>(OtherActor);
 	if (Ememy)
 	{
 		Ememy->ExplodeAndDestroy();

@@ -17,7 +17,7 @@ ANave::ANave()
 	ShipMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	ShipParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Ship Particle"));
 	ShipCollision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Ship Collision"));
-	ShipExplosion = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Ship Explosion"));
+	//ShipExplosion = CreateDefaultSubobject<UParticleSystem>(TEXT("Ship Explosion"));
 	DeathExplosionSound = CreateDefaultSubobject<UAudioComponent>(TEXT("DeadtExplosionSound"));
 	BulletSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("BulletSpawnPoint"));
 	
@@ -26,7 +26,7 @@ ANave::ANave()
 	ShipMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	ShipParticle->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	ShipCollision->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	ShipExplosion->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	//ShipExplosion->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	DeathExplosionSound->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	BulletSpawnPoint->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 
@@ -42,7 +42,6 @@ void ANave::BeginPlay()
 	// tomamos la ubicacion actual de la nave jugador
 	Current_Location = this->GetActorLocation();
 
-	ShipExplosion->Deactivate(); // explosion desactivado
 	DeathExplosionSound->Deactivate(); // desactivamos el sonido de explosion al iniciar
 }
 

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "Particles/ParticleSystem.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -24,8 +25,6 @@ public:
 		USceneComponent* DefaulSceneRoot;
 	UPROPERTY(EditAnywhere, Category = "Component")
 		UParticleSystemComponent* ShipParticle; // para el propulsor
-	UPROPERTY(EditAnywhere, Category = "Component")
-		UParticleSystemComponent* ShipExplosion; // para la explosion
 	UPROPERTY(EditAnywhere, Category = "Component")
 		UStaticMeshComponent* ShipMesh; // la malla o cascara
 	UPROPERTY(EditAnywhere, Category = "Component")

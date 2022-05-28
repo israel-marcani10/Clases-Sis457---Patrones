@@ -18,6 +18,9 @@ class STARFIGHTER_API APlayerShip : public ANave
 public:
 	APlayerShip();
 
+	UPROPERTY(EditAnywhere, Category = "Component")
+		UParticleSystem* ShipExplosionPlayer; // para la explosion
+
 	// propiedades propias de la nave jugador
 	UPROPERTY(BlueprintReadOnly)
 		float Max_Health;  // salud maxima
@@ -51,11 +54,9 @@ public:
 	static const FName FireBinding2;
 
 	// metodos para el disparo de las municiones diferentes
-	void Fire1();
-	void Fire2();
-	void FireWeapon1(FVector Fireirection);
-	void FireWeapon2(FVector Fireirectio);
-	void ShotTimerExpired(); // manejador del temporizador del disparo
+	void FireShoot1();
+	void FireShoot2();
+	void ExplodeAndDestroy();
 
 	// metodos para el movimiento de la nave jugador
 	void MoveHorizontal(float AxisValue);
@@ -90,9 +91,9 @@ public:
 private:
 
 	// bandera para controlar los disparos
-	uint32 bCanFire : 1;
+	//int32 bCanFire : 1;
 
 	// Variable para una gestión eficiente del temporizador ShotTimerExpired
-	FTimerHandle TimerHandle_ShotTimerExpired; 
+	//FTimerHandle TimerHandle_ShotTimerExpired; 
 
 };
