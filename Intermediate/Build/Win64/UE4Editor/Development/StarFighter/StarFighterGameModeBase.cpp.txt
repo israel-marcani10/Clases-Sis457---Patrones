@@ -4,6 +4,8 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFra
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\MotherShipEnemy.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\MotherShipEnemy.generated.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\StarFighterGameModeBase.generated.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\PlayerShip.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Nave.h

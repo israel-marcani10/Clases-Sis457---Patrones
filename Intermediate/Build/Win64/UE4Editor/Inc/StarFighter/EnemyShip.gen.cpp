@@ -105,7 +105,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemyShip() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AEnemyShip, 1641511144);
+	IMPLEMENT_CLASS(AEnemyShip, 2696990935);
 	template<> STARFIGHTER_API UClass* StaticClass<AEnemyShip>()
 	{
 		return AEnemyShip::StaticClass();

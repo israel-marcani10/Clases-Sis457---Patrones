@@ -31,8 +31,8 @@ public:
 		UCapsuleComponent* ShipCollision; // para colisiones 
 	UPROPERTY(EditAnywhere, Category = "Component")
 		UAudioComponent* DeathExplosionSound; // sonido de muerte
-	UPROPERTY(EditAnywhere, Category = "Component")
-		USceneComponent* BulletSpawnPoint;
+	//UPROPERTY(EditAnywhere, Category = "Component")
+		//USceneComponent* BulletSpawnPoint;
 
 		// tamaño del campo de juego
 	UPROPERTY(EditAnywhere)

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "MotherShipEnemy.h"
 #include "StarFighterGameModeBase.generated.h"
 
 /**
@@ -14,10 +15,20 @@ class STARFIGHTER_API AStarFighterGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 
+private:
+	static AMotherShipEnemy* Instance;
+
 public:
+	AMotherShipEnemy* GetInstance();
+
+	// TSubclassOf es una clase de plantilla que proporciona seguridad de tipo UClass.
+	UPROPERTY(EditAnywhere, Category = "Spawn Nodriza")
+		TSubclassOf<AMotherShipEnemy> MotherShip;
+
+
 	//template <typename T>
 	//T SpawnNave();
-
+	
 protected:
 	virtual void BeginPlay() override;
 	

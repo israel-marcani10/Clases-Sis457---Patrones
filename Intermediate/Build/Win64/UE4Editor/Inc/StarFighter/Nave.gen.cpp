@@ -57,10 +57,6 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DeathExplosionSound;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BulletSpawnPoint_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_BulletSpawnPoint;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Field_Width_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Field_Width;
@@ -136,16 +132,6 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_DeathExplosionSound = { "DeathExplosionSound", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, DeathExplosionSound), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_DeathExplosionSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_DeathExplosionSound_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_BulletSpawnPoint_MetaData[] = {
-		{ "Category", "Component" },
-		{ "Comment", "// sonido de muerte\n" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Nave.h" },
-		{ "ToolTip", "sonido de muerte" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANave_Statics::NewProp_BulletSpawnPoint = { "BulletSpawnPoint", nullptr, (EPropertyFlags)0x0010000000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ANave, BulletSpawnPoint), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ANave_Statics::NewProp_BulletSpawnPoint_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ANave_Statics::NewProp_BulletSpawnPoint_MetaData)) };
-#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ANave_Statics::NewProp_Field_Width_MetaData[] = {
 		{ "Category", "Nave" },
 		{ "Comment", "// tama?o del campo de juego\n" },
@@ -178,7 +164,6 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_ShipMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_ShipCollision,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_DeathExplosionSound,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_BulletSpawnPoint,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_Field_Width,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_Field_Height,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANave_Statics::NewProp_MaxVelocity,
@@ -210,7 +195,7 @@ void EmptyLinkFunctionForGeneratedCodeNave() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANave, 3571166147);
+	IMPLEMENT_CLASS(ANave, 188620009);
 	template<> STARFIGHTER_API UClass* StaticClass<ANave>()
 	{
 		return ANave::StaticClass();

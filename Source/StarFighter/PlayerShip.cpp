@@ -56,7 +56,7 @@ void APlayerShip::Tick(float DeltaTime)
 	}
 
 	if (Max_Health <= 0.f) {
-		this->Destroy();
+		this->ExplodeAndDestroy();
 	}
 }
 
