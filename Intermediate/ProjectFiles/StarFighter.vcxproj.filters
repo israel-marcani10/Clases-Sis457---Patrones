@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\StarFighter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{5CFEF9FB-A95D-4C37-BA41-B7F46EFCCB3A}</UniqueIdentifier>
+      <UniqueIdentifier>{EF27405B-DF3D-4919-9861-DF6256014AF4}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\StarFighter.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{FF49E763-65E2-47BB-8448-704C647FEE1F}</UniqueIdentifier>
+      <UniqueIdentifier>{1C1FC0CF-4461-4E88-9DFD-2E47F93BD3F1}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,7 +29,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\StarFighter">
-      <UniqueIdentifier>{E14791C5-C011-4586-847E-49D784351A53}</UniqueIdentifier>
+      <UniqueIdentifier>{57957A8E-5654-4D2A-9DDC-1DD1A6399025}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\StarFighter\Bullet1.cpp">
       <Filter>Source\StarFighter</Filter>
@@ -95,6 +95,24 @@
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\StarFighter\EnemyShip.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\EnemyShipWithPattern.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\EnemyShipWithPattern.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\EnemyShipWithPatternBuilder.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\EnemyShipWithPatternBuilder.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\EnemyShipWithPatternDirector.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\EnemyShipWithPatternDirector.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\StarFighter\InventoryComponent.cpp">

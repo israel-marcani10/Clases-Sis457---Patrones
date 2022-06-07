@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "MotherShipEnemy.h"
+#include "EnemyShipWithPattern.h"
 #include "StarFighterGameModeBase.generated.h"
 
 /**
@@ -24,6 +25,9 @@ public:
 	// TSubclassOf es una clase de plantilla que proporciona seguridad de tipo UClass.
 	UPROPERTY(EditAnywhere, Category = "Spawn Nodriza")
 		TSubclassOf<AMotherShipEnemy> MotherShip;
+
+	UPROPERTY(EditAnywhere, Category = "Spawn Nodriza")
+		class AEnemyShipWithPattern* EnemyShipPattern;
 
 
 	//template <typename T>

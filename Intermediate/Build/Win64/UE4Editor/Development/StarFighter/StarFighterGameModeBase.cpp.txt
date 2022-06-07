@@ -6,8 +6,7 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\MotherShipEnemy.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\MotherShipEnemy.generated.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\StarFighterGameModeBase.generated.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\PlayerShip.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\EnemyShipWithPattern.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Nave.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticleSystem.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Particles/ParticlePerfStats.h
@@ -32,6 +31,9 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\AudioMixer\Public\Quartz/AudioMixerQuantizedCommands.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AudioComponent.generated.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Nave.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\EnemyShipWithPattern.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\StarFighterGameModeBase.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\PlayerShip.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\InventoryComponent.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\MyCapsule.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\MyCapsule.generated.h

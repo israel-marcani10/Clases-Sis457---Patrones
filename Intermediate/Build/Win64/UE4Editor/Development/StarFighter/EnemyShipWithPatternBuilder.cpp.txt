@@ -1,0 +1,3 @@
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Development\StarFighter\Definitions.StarFighter.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\EnemyShipWithPatternBuilder.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\EnemyShipWithPatternBuilder.generated.h

@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeStarFighterGameModeBase() {}
 	UPackage* Z_Construct_UPackage__Script_StarFighter();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	STARFIGHTER_API UClass* Z_Construct_UClass_AMotherShipEnemy_NoRegister();
+	STARFIGHTER_API UClass* Z_Construct_UClass_AEnemyShipWithPattern_NoRegister();
 // End Cross Module References
 	void AStarFighterGameModeBase::StaticRegisterNativesAStarFighterGameModeBase()
 	{
@@ -37,6 +38,10 @@ void EmptyLinkFunctionForGeneratedCodeStarFighterGameModeBase() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MotherShip_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_MotherShip;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnemyShipPattern_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_EnemyShipPattern;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -63,8 +68,16 @@ void EmptyLinkFunctionForGeneratedCodeStarFighterGameModeBase() {}
 	};
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_AStarFighterGameModeBase_Statics::NewProp_MotherShip = { "MotherShip", nullptr, (EPropertyFlags)0x0014000000000001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStarFighterGameModeBase, MotherShip), Z_Construct_UClass_AMotherShipEnemy_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AStarFighterGameModeBase_Statics::NewProp_MotherShip_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStarFighterGameModeBase_Statics::NewProp_MotherShip_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStarFighterGameModeBase_Statics::NewProp_EnemyShipPattern_MetaData[] = {
+		{ "Category", "Spawn Nodriza" },
+		{ "ModuleRelativePath", "StarFighterGameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStarFighterGameModeBase_Statics::NewProp_EnemyShipPattern = { "EnemyShipPattern", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStarFighterGameModeBase, EnemyShipPattern), Z_Construct_UClass_AEnemyShipWithPattern_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStarFighterGameModeBase_Statics::NewProp_EnemyShipPattern_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStarFighterGameModeBase_Statics::NewProp_EnemyShipPattern_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AStarFighterGameModeBase_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStarFighterGameModeBase_Statics::NewProp_MotherShip,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStarFighterGameModeBase_Statics::NewProp_EnemyShipPattern,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AStarFighterGameModeBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AStarFighterGameModeBase>::IsAbstract,
@@ -93,7 +106,7 @@ void EmptyLinkFunctionForGeneratedCodeStarFighterGameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AStarFighterGameModeBase, 2459911907);
+	IMPLEMENT_CLASS(AStarFighterGameModeBase, 423449008);
 	template<> STARFIGHTER_API UClass* StaticClass<AStarFighterGameModeBase>()
 	{
 		return AStarFighterGameModeBase::StaticClass();
