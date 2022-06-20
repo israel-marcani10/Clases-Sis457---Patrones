@@ -58,7 +58,14 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AEnemyShipWithPattern)
 
 
-#define StarFighter_Source_StarFighter_EnemyShipWithPattern_h_15_PRIVATE_PROPERTY_OFFSET
+#define StarFighter_Source_StarFighter_EnemyShipWithPattern_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__MeshShipEnemy() { return STRUCT_OFFSET(AEnemyShipWithPattern, MeshShipEnemy); } \
+	FORCEINLINE static uint32 __PPO__VelocityShip() { return STRUCT_OFFSET(AEnemyShipWithPattern, VelocityShip); } \
+	FORCEINLINE static uint32 __PPO__BulletSpawnPoint() { return STRUCT_OFFSET(AEnemyShipWithPattern, BulletSpawnPoint); } \
+	FORCEINLINE static uint32 __PPO__DefenseSystem() { return STRUCT_OFFSET(AEnemyShipWithPattern, DefenseSystem); } \
+	FORCEINLINE static uint32 __PPO__DisplacementSystem() { return STRUCT_OFFSET(AEnemyShipWithPattern, DisplacementSystem); }
+
+
 #define StarFighter_Source_StarFighter_EnemyShipWithPattern_h_12_PROLOG
 #define StarFighter_Source_StarFighter_EnemyShipWithPattern_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

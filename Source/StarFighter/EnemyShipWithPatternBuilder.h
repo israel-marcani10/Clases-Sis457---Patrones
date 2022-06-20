@@ -19,9 +19,10 @@ class STARFIGHTER_API IEnemyShipWithPatternBuilder
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
+	virtual void buildMeshShipEnemy() = 0;
+	virtual void buildVelocityShip() = 0;
+	virtual void buildBulletSpawnPoint() = 0;
 	virtual void buildDefenseSystem() = 0;
-	virtual void buildAttackSystem() = 0;
 	virtual void buildDisplacementSystem() = 0;
-	virtual void buildCamouflageSystem() = 0;
 	virtual class AEnemyShipWithPattern* getEnemyShipPattern() = 0;
 };

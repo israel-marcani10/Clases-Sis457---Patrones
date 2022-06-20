@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\StarFighter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{EF27405B-DF3D-4919-9861-DF6256014AF4}</UniqueIdentifier>
+      <UniqueIdentifier>{8CCA676E-1CC6-4ECC-9C4D-484649696DE0}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\StarFighter.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{1C1FC0CF-4461-4E88-9DFD-2E47F93BD3F1}</UniqueIdentifier>
+      <UniqueIdentifier>{18431999-57FB-4730-80C5-8D91494DF2E9}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,7 +29,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\StarFighter">
-      <UniqueIdentifier>{57957A8E-5654-4D2A-9DDC-1DD1A6399025}</UniqueIdentifier>
+      <UniqueIdentifier>{74DE4A76-609C-41B6-BFBA-28A8E9524726}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\StarFighter\Bullet1.cpp">
       <Filter>Source\StarFighter</Filter>
@@ -53,12 +53,6 @@
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\StarFighter\Cola.h">
-      <Filter>Source\StarFighter</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\CreateCapsules.cpp">
-      <Filter>Source\StarFighter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\CreateCapsules.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\StarFighter\CreateEnemy.cpp">
@@ -85,12 +79,6 @@
     <ClInclude Include="..\..\Source\StarFighter\Enemy3.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\EnemyMotherShip.cpp">
-      <Filter>Source\StarFighter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\EnemyMotherShip.h">
-      <Filter>Source\StarFighter</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\StarFighter\EnemyShip.cpp">
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
@@ -109,10 +97,10 @@
     <ClInclude Include="..\..\Source\StarFighter\EnemyShipWithPatternBuilder.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\EnemyShipWithPatternDirector.cpp">
+    <ClCompile Include="..\..\Source\StarFighter\Food.cpp">
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\EnemyShipWithPatternDirector.h">
+    <ClInclude Include="..\..\Source\StarFighter\Food.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\StarFighter\InventoryComponent.cpp">
@@ -137,6 +125,57 @@
       <Filter>Source\StarFighter</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\StarFighter\Nave.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\PaAdaGeneradorFood.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\PaAdaGeneradorFood.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\StarFighter\PaAda_CreateFood.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\PaAda_FoodAdapter.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\PaAda_FoodAdapter.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\PaFM_CapsulaEnergia.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\PaFM_CapsulaEnergia.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\PaFM_GeneradorCapsulas.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\PaFM_GeneradorCapsulas.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\PaFM_GeneradorCapsulasArmas.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\PaFM_GeneradorCapsulasArmas.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\PaFM_GeneradorCapsulasEnergia.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\PaFM_GeneradorCapsulasEnergia.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\PatternEnemyShip1.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\PatternEnemyShip1.h">
+      <Filter>Source\StarFighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\StarFighter\PatternEnemyShipDirector.cpp">
+      <Filter>Source\StarFighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\StarFighter\PatternEnemyShipDirector.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\StarFighter\PlayerShip.cpp">

@@ -8,7 +8,6 @@
 #include "Bullet1.h"
 #include "Bullet2.h"
 #include "MyCapsule.h"
-#include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
 const FName APlayerShip::MoveHorizontalBinding("MoveHorizontal");
@@ -32,7 +31,7 @@ APlayerShip::APlayerShip()
 	Max_Health = 100.0f; // salud maxima
 	Max_Armor = 100.0f; // armadura maxima
 
-	ShipInventory = CreateDefaultSubobject<UInventoryComponent>("MyInventory");
+	//ShipInventory = CreateDefaultSubobject<UInventoryComponent>("MyInventory");
 }
 
 void APlayerShip::BeginPlay()
@@ -69,6 +68,14 @@ void APlayerShip::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAxis(MoveVerticalBinding, this, &APlayerShip::MoveVertical);
 	InputComponent->BindAction(FireBinding1, IE_Pressed, this, &APlayerShip::FireShoot1);
 	InputComponent->BindAction(FireBinding2, IE_Pressed, this, &APlayerShip::FireShoot2);
+}
+
+void APlayerShip::SetCrearFood(AActor* CrearFoodObj)
+{
+}
+
+void APlayerShip::Crear()
+{
 }
 
 void APlayerShip::MoveHorizontal(float AxisValue)
@@ -135,6 +142,7 @@ void APlayerShip::ExplodeAndDestroy()
 	Destroy();
 }
 
+/*
 // metodo para recoger capsulas al inventario del jugador
 void APlayerShip::TakeItem(AMyCapsule* InventoryItem)
 {
@@ -190,4 +198,4 @@ void APlayerShip::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimiti
 		}
 	}
 	
-}
+}*/

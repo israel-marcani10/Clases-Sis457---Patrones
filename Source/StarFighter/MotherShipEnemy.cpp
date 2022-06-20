@@ -30,7 +30,7 @@ AMotherShipEnemy::AMotherShipEnemy()
 
 	// inicializando la amplitud del campo de juego
 	Field_Width = 700.f;
-	Field_Height = 400.f;
+	Field_Height = 160.f;
 }
  
  // Called when the game starts or when spawned

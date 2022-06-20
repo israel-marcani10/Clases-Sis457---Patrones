@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Nave.h"
-#include "InventoryComponent.h"
 #include "PlayerShip.generated.h"
 
 /**
@@ -63,7 +62,7 @@ public:
 	void MoveVertical(float AxisValue);
 
 	
-
+	/*
 	//Inventario
 	UPROPERTY()
 		UInventoryComponent* ShipInventory;
@@ -77,7 +76,7 @@ public:
 	UFUNCTION()
 		virtual void NotifyHit(class UPrimitiveComponent* MyComp, AActor* Other, class UPrimitiveComponent* OtherComp, bool bSelfMoved,
 			FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
-
+*/
 
 protected:
 	virtual void BeginPlay() override;
@@ -96,4 +95,7 @@ private:
 	// Variable para una gestión eficiente del temporizador ShotTimerExpired
 	//FTimerHandle TimerHandle_ShotTimerExpired; 
 
+
+	void SetCrearFood(AActor* CrearFoodObj);
+	void Crear();
 };

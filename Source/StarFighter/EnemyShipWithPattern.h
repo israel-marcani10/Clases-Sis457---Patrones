@@ -15,24 +15,26 @@ class STARFIGHTER_API AEnemyShipWithPattern : public ANave
 	GENERATED_BODY()
 	
 private:
-	FString DefenseSystem;
-	FString AttackSystem;
-	FString DisplacementSystem;
-	FString CamouflageSystem;
+	UPROPERTY(EditAnywhere, Category = "Nave enemiga con Patron")
+		UStaticMeshComponent* MeshShipEnemy;
+	UPROPERTY(EditAnywhere, Category = "Nave enemiga con Patron")
+		float VelocityShip;
+	UPROPERTY(EditAnywhere, Category = "Nave enemiga con Patron")
+		USceneComponent* BulletSpawnPoint;
+	UPROPERTY(EditAnywhere, Category = "Nave enemiga con Patron")
+		FString DefenseSystem;
+	UPROPERTY(EditAnywhere, Category = "Nave enemiga con Patron")
+		FString DisplacementSystem;
 
 public:
 
 	AEnemyShipWithPattern();
 
+	void setMeshShipEnemy(UStaticMeshComponent* _MeshShipEnemy) { MeshShipEnemy = _MeshShipEnemy; }
+	void setVelocityShip(float _VelocityShip) { VelocityShip = _VelocityShip; }
+	void setBulletSpawnPoint(USceneComponent* _BulletSpawnPoint) { BulletSpawnPoint = _BulletSpawnPoint; }
 	void setDefenseSystem(FString _DefenseSystem) { DefenseSystem = _DefenseSystem; }
-	void setAttackSystem(FString _AttackSystem) { AttackSystem = _AttackSystem; }
 	void setDisplacementSystem(FString _DisplacementSystem) { DisplacementSystem = _DisplacementSystem; }
-	void setCamouflageSystem(FString _CamouflageSystem) { CamouflageSystem = _CamouflageSystem; }
 	void CharacteristicsEnemyShip();
 
-protected:
-	virtual void BeginPlay() override;
-
-public:
-	void Tick(float DeltaTime) override;
 };
