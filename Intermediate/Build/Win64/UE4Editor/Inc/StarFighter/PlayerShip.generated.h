@@ -8,14 +8,26 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FVector;
+struct FHitResult;
 #ifdef STARFIGHTER_PlayerShip_generated_h
 #error "PlayerShip.generated.h already included, missing '#pragma once' in PlayerShip.h"
 #endif
 #define STARFIGHTER_PlayerShip_generated_h
 
 #define StarFighter_Source_StarFighter_PlayerShip_h_15_SPARSE_DATA
-#define StarFighter_Source_StarFighter_PlayerShip_h_15_RPC_WRAPPERS
-#define StarFighter_Source_StarFighter_PlayerShip_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define StarFighter_Source_StarFighter_PlayerShip_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execNotifyHit);
+
+
+#define StarFighter_Source_StarFighter_PlayerShip_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execNotifyHit);
+
+
 #define StarFighter_Source_StarFighter_PlayerShip_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayerShip(); \

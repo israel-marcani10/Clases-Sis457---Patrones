@@ -7,6 +7,9 @@
 #include "PaFM_GeneradorCapsulasArmas.h"
 #include "PaFM_GeneradorCapsulasEnergia.h"
 #include "PaAda_FoodAdapter.h"
+#include "Pa_OPlayerShip.h"
+#include "Pa_OEnemigo.h"
+#include "Pa_OEnemigo02.h"
 
 AMotherShipEnemy* AStarFighterGameModeBase::Instance = nullptr;
 
@@ -14,11 +17,11 @@ AStarFighterGameModeBase::AStarFighterGameModeBase()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	// el tiempo para que aparezca la nave nodriza
-	TiempoNodriza = 15.f;
+	TiempoNodriza = 60.f;
 
 	// inicializando variables FM
 	InicioSpawn = 0.f;
-	TopSpawn = 3.f;
+	TopSpawn = 5.f;
 
 	// patron adapter
 	TiempoFood = 0.f;
@@ -61,6 +64,30 @@ void AStarFighterGameModeBase::BeginPlay()
 	// Patron Adapter
 	APaAda_FoodAdapter* FoodAdapter = GetWorld()->SpawnActor<APaAda_FoodAdapter>(APaAda_FoodAdapter::StaticClass());
 	SetCrearFood(FoodAdapter);
+	
+	
+	// PATRON DE COMPORTAMIENTO OBSERVER
+	//Engendra la Torre de control
+	const FVector LocationPlayer = FVector(-680.f, 0.f, 0.f);
+	const FRotator RotationPlayer = FRotator(0.f, -90.f, 90.f);
+	APa_OPlayerShip* NaveJugador =  GetWorld()->SpawnActor<APa_OPlayerShip>(LocationPlayer, RotationPlayer);
+
+	//Engendra el primer Suscriptor (enemigo1) y establece su Torre de control
+	const FVector LocationEnemy1 = FVector(650.f, -200.f, 0.f);
+	const FRotator RotationEnemy1 = FRotator(0.f, 0.f, 0.f);
+	APa_OEnemigo* NaveEnemigaPO1 = GetWorld()->SpawnActor<APa_OEnemigo>(LocationEnemy1, RotationEnemy1);
+	NaveEnemigaPO1->setTorreControl(NaveJugador);
+
+	//Engendra el primer Suscriptor (enemigo1) y establece su Torre de control
+	const FVector LocationEnemy2 = FVector(650.f, 200.f, 0.f);
+	const FRotator RotationEnemy2 = FRotator(0.f, 0.f, 0.f);
+	APa_OEnemigo02* NaveEnemigaPO2 = GetWorld()->SpawnActor<APa_OEnemigo02>(LocationEnemy2, RotationEnemy2);
+	NaveEnemigaPO2->setTorreControl(NaveJugador);
+
+	//Cambia la accion de la Torre de control, para que los Suscriptores puedan ejecutar su propia rutina
+	//NaveJugador->setCambiarAccion("Morning");
+	//NaveJugador->setCambiarAccion("Midday");
+	//NaveJugador->setCambiarAccion("Evening");
 }
 
 void AStarFighterGameModeBase::Tick(float DeltaTime)
@@ -80,7 +107,7 @@ void AStarFighterGameModeBase::Tick(float DeltaTime)
 	if (InicioSpawn >= TopSpawn)
 	{
 		InicioSpawn = 0.f;
-		int ProbalidadAparicion = FMath::RandRange(0, 25);
+		float ProbalidadAparicion = FMath::RandRange(0, 100);
 		APaFM_GeneradorCapsulas* GeneradorCapsulas;
 		
 		if (ProbalidadAparicion <= 25.f) {
@@ -90,13 +117,13 @@ void AStarFighterGameModeBase::Tick(float DeltaTime)
 		}
 		else if (ProbalidadAparicion > 25.f && ProbalidadAparicion <= 50.f) {
 			GeneradorCapsulas = GetWorld()->SpawnActor<APaFM_GeneradorCapsulasEnergia>(APaFM_GeneradorCapsulasEnergia::StaticClass());
-			GeneradorCapsulas->ConstruirCapsula("Energia1");
-		}
-		else if (ProbalidadAparicion > 50.f && ProbalidadAparicion <= 75.f) {
-			GeneradorCapsulas = GetWorld()->SpawnActor<APaFM_GeneradorCapsulasEnergia>(APaFM_GeneradorCapsulasEnergia::StaticClass());
 			GeneradorCapsulas->ConstruirCapsula("Vida1");
 		}
-		else if (ProbalidadAparicion > 75.f && ProbalidadAparicion <=100.f) {
+		else if (ProbalidadAparicion > 50.f && ProbalidadAparicion <= 75.f) {
+			GeneradorCapsulas = GetWorld()->SpawnActor<APaFM_GeneradorCapsulasArmas>(APaFM_GeneradorCapsulasArmas::StaticClass());
+			GeneradorCapsulas->ConstruirCapsula("Arma1");
+		}
+		else {
 			GeneradorCapsulas = GetWorld()->SpawnActor<APaFM_GeneradorCapsulasArmas>(APaFM_GeneradorCapsulasArmas::StaticClass());
 			GeneradorCapsulas->ConstruirCapsula("Escudo1");
 		}
@@ -104,7 +131,7 @@ void AStarFighterGameModeBase::Tick(float DeltaTime)
 
 	// patron adapter
 	TiempoFood += DeltaTime;
-	if (TiempoFood >=5.f)
+	if (TiempoFood >= 15.f)
 	{
 		TiempoFood = 0.f;
 		Crear();

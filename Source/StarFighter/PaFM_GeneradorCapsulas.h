@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "MyCapsule.h"
 #include "PaFM_GeneradorCapsulas.generated.h"
 
 UCLASS()

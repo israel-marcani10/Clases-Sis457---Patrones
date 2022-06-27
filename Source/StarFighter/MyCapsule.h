@@ -18,8 +18,8 @@ public:
 	// Malla de la clase Mi capsula
 	UPROPERTY(EditAnywhere, Category = "Componentes Capsula")
 		class UStaticMeshComponent* CapsuleMesh;
-	UPROPERTY(EditAnywhere, Category = "Componentes Capsula")
-		FString NameCapsule;
+	//UPROPERTY(EditAnywhere, Category = "Componentes Capsula")
+	FString NameCapsule;
 
 protected:
 	// Called when the game starts or when spawned
@@ -32,7 +32,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual void Generar();
-	//void Destruir();
+	void Destruir();
 
 
 	//virtual void PickUp();

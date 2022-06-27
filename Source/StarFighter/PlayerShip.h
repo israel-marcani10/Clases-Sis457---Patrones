@@ -38,6 +38,8 @@ public:
 	/** Offset from the ships location to spawn projectiles */
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
 		FVector GunOffset;
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
+		FVector GunOffset1;
 
 	// variable para saber que tan rapido dispara el arma
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
@@ -45,23 +47,23 @@ public:
 	// sonido del disparo
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 		class USoundBase* FireSound;
-	
+
 	// Nombres estáticos para enlaces de ejes y disparo
-	static const FName MoveHorizontalBinding;
-	static const FName MoveVerticalBinding;
-	static const FName FireBinding1;
-	static const FName FireBinding2;
+	static const FName MoveHorizontalBinding1;
+	static const FName MoveVerticalBinding1;
+	static const FName FireBinding11;
+	static const FName FireBinding21;
 
 	// metodos para el disparo de las municiones diferentes
 	void FireShoot1();
 	void FireShoot2();
 	void ExplodeAndDestroy();
-
+	int32 BulletNumbers;
 	// metodos para el movimiento de la nave jugador
 	void MoveHorizontal(float AxisValue);
 	void MoveVertical(float AxisValue);
 
-	
+
 	/*
 	//Inventario
 	UPROPERTY()
@@ -71,12 +73,12 @@ public:
 		void TakeItem(AMyCapsule* InventoryItem);
 
 	UFUNCTION()
-		void DropItem();
+		void DropItem();*/
 
 	UFUNCTION()
 		virtual void NotifyHit(class UPrimitiveComponent* MyComp, AActor* Other, class UPrimitiveComponent* OtherComp, bool bSelfMoved,
 			FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
-*/
+
 
 protected:
 	virtual void BeginPlay() override;
@@ -95,7 +97,4 @@ private:
 	// Variable para una gestión eficiente del temporizador ShotTimerExpired
 	//FTimerHandle TimerHandle_ShotTimerExpired; 
 
-
-	void SetCrearFood(AActor* CrearFoodObj);
-	void Crear();
 };

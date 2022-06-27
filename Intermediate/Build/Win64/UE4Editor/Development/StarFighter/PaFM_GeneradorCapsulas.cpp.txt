@@ -1,7 +1,0 @@
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Development\StarFighter\Definitions.StarFighter.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\PaFM_GeneradorCapsulas.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\MyCapsule.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\MyCapsule.generated.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\PaFM_GeneradorCapsulas.generated.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\PaFM_CapsulaEnergia.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\PaFM_CapsulaEnergia.generated.h

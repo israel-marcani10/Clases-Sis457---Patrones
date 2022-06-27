@@ -73,7 +73,7 @@ void EmptyLinkFunctionForGeneratedCodePaFM_CapsulaEnergia() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APaFM_CapsulaEnergia, 4269146354);
+	IMPLEMENT_CLASS(APaFM_CapsulaEnergia, 2628487053);
 	template<> STARFIGHTER_API UClass* StaticClass<APaFM_CapsulaEnergia>()
 	{
 		return APaFM_CapsulaEnergia::StaticClass();

@@ -25,7 +25,7 @@ void AMyCapsule::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	const FVector MoveDirection = FVector(0.f, 1.f, 0.f);
-	const FVector Movement = MoveDirection * 20.f * DeltaTime;
+	const FVector Movement = MoveDirection * 40.f * DeltaTime;
 
 	if (Movement.SizeSquared() > 0.0f) {
 		const FRotator NewRotation = FRotator(0.0f, 0.0f, 0.0f);
@@ -49,4 +49,11 @@ void AMyCapsule::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 void AMyCapsule::Generar()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString::Printf(TEXT("Capsula Generada")));
+}
+
+void AMyCapsule::Destruir()
+{
+	if (CapsuleMesh) {
+		this->Destroy();
+	}
 }

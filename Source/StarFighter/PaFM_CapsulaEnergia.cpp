@@ -5,5 +5,9 @@
 
 APaFM_CapsulaEnergia::APaFM_CapsulaEnergia()
 {
-	NameCapsule = "CapsulaEnergia1";
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> AssetCapsula(TEXT("StaticMesh'/Game/Meshes/Energia1.Energia1'"));
+	CapsuleMesh->SetStaticMesh(AssetCapsula.Object);
+
+	//CapsuleMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CapsuleMesh"));
+	NameCapsule = "Energia1";
 }

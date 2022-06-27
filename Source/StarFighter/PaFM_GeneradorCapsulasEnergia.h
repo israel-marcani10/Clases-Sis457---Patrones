@@ -17,7 +17,4 @@ class STARFIGHTER_API APaFM_GeneradorCapsulasEnergia : public APaFM_GeneradorCap
 	
 public:
 	virtual bool FabricarCapsula(FString NombreTipoCapsula) override;
-
-	UPROPERTY(EditAnywhere, Category = "Tipo Capsulas")
-		TSubclassOf<AMyCapsule> CapsulaEnergia1;
 };

@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define STARFIGHTER_Food_generated_h
 
-#define StarFighter_Source_StarFighter_Food_h_12_SPARSE_DATA
-#define StarFighter_Source_StarFighter_Food_h_12_RPC_WRAPPERS
-#define StarFighter_Source_StarFighter_Food_h_12_RPC_WRAPPERS_NO_PURE_DECLS
-#define StarFighter_Source_StarFighter_Food_h_12_INCLASS_NO_PURE_DECLS \
+#define StarFighter_Source_StarFighter_Food_h_18_SPARSE_DATA
+#define StarFighter_Source_StarFighter_Food_h_18_RPC_WRAPPERS
+#define StarFighter_Source_StarFighter_Food_h_18_RPC_WRAPPERS_NO_PURE_DECLS
+#define StarFighter_Source_StarFighter_Food_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFood(); \
 	friend struct Z_Construct_UClass_AFood_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(AFood)
 
 
-#define StarFighter_Source_StarFighter_Food_h_12_INCLASS \
+#define StarFighter_Source_StarFighter_Food_h_18_INCLASS \
 private: \
 	static void StaticRegisterNativesAFood(); \
 	friend struct Z_Construct_UClass_AFood_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AFood)
 
 
-#define StarFighter_Source_StarFighter_Food_h_12_STANDARD_CONSTRUCTORS \
+#define StarFighter_Source_StarFighter_Food_h_18_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AFood(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AFood) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define StarFighter_Source_StarFighter_Food_h_12_ENHANCED_CONSTRUCTORS \
+#define StarFighter_Source_StarFighter_Food_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AFood(AFood&&); \
@@ -58,28 +58,28 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AFood)
 
 
-#define StarFighter_Source_StarFighter_Food_h_12_PRIVATE_PROPERTY_OFFSET
-#define StarFighter_Source_StarFighter_Food_h_9_PROLOG
-#define StarFighter_Source_StarFighter_Food_h_12_GENERATED_BODY_LEGACY \
+#define StarFighter_Source_StarFighter_Food_h_18_PRIVATE_PROPERTY_OFFSET
+#define StarFighter_Source_StarFighter_Food_h_15_PROLOG
+#define StarFighter_Source_StarFighter_Food_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	StarFighter_Source_StarFighter_Food_h_12_PRIVATE_PROPERTY_OFFSET \
-	StarFighter_Source_StarFighter_Food_h_12_SPARSE_DATA \
-	StarFighter_Source_StarFighter_Food_h_12_RPC_WRAPPERS \
-	StarFighter_Source_StarFighter_Food_h_12_INCLASS \
-	StarFighter_Source_StarFighter_Food_h_12_STANDARD_CONSTRUCTORS \
+	StarFighter_Source_StarFighter_Food_h_18_PRIVATE_PROPERTY_OFFSET \
+	StarFighter_Source_StarFighter_Food_h_18_SPARSE_DATA \
+	StarFighter_Source_StarFighter_Food_h_18_RPC_WRAPPERS \
+	StarFighter_Source_StarFighter_Food_h_18_INCLASS \
+	StarFighter_Source_StarFighter_Food_h_18_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define StarFighter_Source_StarFighter_Food_h_12_GENERATED_BODY \
+#define StarFighter_Source_StarFighter_Food_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	StarFighter_Source_StarFighter_Food_h_12_PRIVATE_PROPERTY_OFFSET \
-	StarFighter_Source_StarFighter_Food_h_12_SPARSE_DATA \
-	StarFighter_Source_StarFighter_Food_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	StarFighter_Source_StarFighter_Food_h_12_INCLASS_NO_PURE_DECLS \
-	StarFighter_Source_StarFighter_Food_h_12_ENHANCED_CONSTRUCTORS \
+	StarFighter_Source_StarFighter_Food_h_18_PRIVATE_PROPERTY_OFFSET \
+	StarFighter_Source_StarFighter_Food_h_18_SPARSE_DATA \
+	StarFighter_Source_StarFighter_Food_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	StarFighter_Source_StarFighter_Food_h_18_INCLASS_NO_PURE_DECLS \
+	StarFighter_Source_StarFighter_Food_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

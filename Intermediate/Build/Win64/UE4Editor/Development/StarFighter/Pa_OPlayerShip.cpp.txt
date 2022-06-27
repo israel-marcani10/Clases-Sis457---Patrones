@@ -1,0 +1,15 @@
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Development\StarFighter\Definitions.StarFighter.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Pa_OPlayerShip.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Pa_OPublisher.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Pa_OSubscriber.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Pa_OSubscriber.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Pa_OPublisher.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Pa_OPlayerShip.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Bullet1.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Proyectil.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/ProjectileMovementComponent.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/MovementComponent.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MovementComponent.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ProjectileMovementComponent.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Proyectil.generated.h
+C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Bullet1.generated.h

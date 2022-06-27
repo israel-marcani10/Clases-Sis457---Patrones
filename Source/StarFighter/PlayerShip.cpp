@@ -10,15 +10,15 @@
 #include "MyCapsule.h"
 #include "GameFramework/SpringArmComponent.h"
 
-const FName APlayerShip::MoveHorizontalBinding("MoveHorizontal");
-const FName APlayerShip::MoveVerticalBinding("MoveVertical");
-const FName APlayerShip::FireBinding1("Bullet1");
-const FName APlayerShip::FireBinding2("Bullet2");
+const FName APlayerShip::MoveHorizontalBinding1("MoveHorizontal1");
+const FName APlayerShip::MoveVerticalBinding1("MoveVertical1");
+const FName APlayerShip::FireBinding11("Bullet11");
+const FName APlayerShip::FireBinding21("Bullet21");
 
 APlayerShip::APlayerShip()
 {
 	// nave jugador posee automaticamente la camara al empezar el nivel
-	AutoPossessPlayer = EAutoReceiveInput::Player0;
+	AutoPossessPlayer = EAutoReceiveInput::Player1;
 
 	// Efecto del sonido
 	static ConstructorHelpers::FObjectFinder<USoundBase> FireAudio(TEXT("SoundWave'/Game/SFX/laser.laser'"));
@@ -26,10 +26,12 @@ APlayerShip::APlayerShip()
 
 	// distancia a spawnear la bala de la nave
 	GunOffset = FVector(90.f, 0.f, 0.f);
+	GunOffset1 = FVector(90.f, 0.f, 0.f);
 
 	MaxVelocity = 300.0f; // velocidad maxima
 	Max_Health = 100.0f; // salud maxima
 	Max_Armor = 100.0f; // armadura maxima
+	BulletNumbers = 0;
 
 	//ShipInventory = CreateDefaultSubobject<UInventoryComponent>("MyInventory");
 }
@@ -64,18 +66,10 @@ void APlayerShip::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	check(PlayerInputComponent);
 
 	// conectando con el unreal para el manejo de las teclas
-	PlayerInputComponent->BindAxis(MoveHorizontalBinding, this, &APlayerShip::MoveHorizontal);
-	PlayerInputComponent->BindAxis(MoveVerticalBinding, this, &APlayerShip::MoveVertical);
-	InputComponent->BindAction(FireBinding1, IE_Pressed, this, &APlayerShip::FireShoot1);
-	InputComponent->BindAction(FireBinding2, IE_Pressed, this, &APlayerShip::FireShoot2);
-}
-
-void APlayerShip::SetCrearFood(AActor* CrearFoodObj)
-{
-}
-
-void APlayerShip::Crear()
-{
+	PlayerInputComponent->BindAxis(MoveHorizontalBinding1, this, &APlayerShip::MoveHorizontal);
+	PlayerInputComponent->BindAxis(MoveVerticalBinding1, this, &APlayerShip::MoveVertical);
+	InputComponent->BindAction(FireBinding11, IE_Pressed, this, &APlayerShip::FireShoot1);
+	InputComponent->BindAction(FireBinding21, IE_Pressed, this, &APlayerShip::FireShoot2);
 }
 
 void APlayerShip::MoveHorizontal(float AxisValue)
@@ -92,11 +86,26 @@ void APlayerShip::FireShoot1()
 {
 	const FVector FireDirection = FVector(1.f, 0.f, 0.f);
 	const FRotator FireRotation = FireDirection.Rotation();
-	const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+	
 
-	UWorld* const World = GetWorld();
-	if (World != nullptr) 
-		World->SpawnActor<ABullet1>(SpawnLocation, FireRotation);
+	if (BulletNumbers == 1) {
+		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+		UWorld* const World = GetWorld();
+		if (World != nullptr)
+			World->SpawnActor<ABullet1>(SpawnLocation, FireRotation);
+	}
+
+	if (BulletNumbers == 2) {
+		GunOffset = FVector(90.f, -20.f, 0.f);
+		GunOffset1 = FVector(90.f, 20.f, 0.f);
+		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+		const FVector SpawnLocation1 = GetActorLocation() + FireRotation.RotateVector(GunOffset1);
+		UWorld* const World = GetWorld();
+		if (World != nullptr) {
+			World->SpawnActor<ABullet1>(SpawnLocation1, FireRotation);
+			World->SpawnActor<ABullet1>(SpawnLocation, FireRotation);
+		}
+	}
 	
 
 	//World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
@@ -104,7 +113,8 @@ void APlayerShip::FireShoot1()
 		if (FireSound != nullptr)
 		{
 			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-		}*/
+		}
+		*/
 }
 void APlayerShip::FireShoot2()
 {
@@ -127,7 +137,8 @@ void APlayerShip::FireShoot2()
 		if (FireSound != nullptr)
 		{
 			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-		}*/
+		}
+		*/
 }
 
 
@@ -164,7 +175,7 @@ void APlayerShip::DropItem()
 	Item->GetActorBounds(false, ItemOrigin, ItemBounds);
 	FTransform PutDownLocation = GetTransform() + FTransform(RootComponent->GetForwardVector() * ItemBounds.GetMax());
 	Item->PutDown(PutDownLocation);
-}
+}*/
 
 void APlayerShip::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved,
 	FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
@@ -172,30 +183,21 @@ void APlayerShip::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimiti
 	AMyCapsule* CapsuleItem = Cast<AMyCapsule>(Other);
 
 	if (CapsuleItem) {
-		if (CapsuleItem->GetNombre() == "IncreVelocity") {
-			TakeItem(CapsuleItem);
-			MaxVelocity += 300.f;
+		if (CapsuleItem->GetNombre() == "Vida1") {
+			CapsuleItem->Destruir();
+			Max_Health += 10.f;
 		}
-		if (CapsuleItem->GetNombre() == "DecreVelocity") {
-			TakeItem(CapsuleItem);
-			MaxVelocity -= 200.f;
+		if (CapsuleItem->GetNombre() == "Energia1") {
+			CapsuleItem->Destruir();
+			MaxVelocity += 100.f;
 		}
-		if (CapsuleItem->GetNombre() == "IncreLives") {
-			TakeItem(CapsuleItem);
-			Max_Health += 50.f;
+		if (CapsuleItem->GetNombre() == "Arma1") {
+			CapsuleItem->Destruir();
+			BulletNumbers += 1;
 		}
-		if (CapsuleItem->GetNombre() == "DecreLives") {
-			TakeItem(CapsuleItem);
-			Max_Health -= 50.f;
-		}
-		if (CapsuleItem->GetNombre() == "IncreWeapon") {
-			TakeItem(CapsuleItem);
-			FireRate -= 1.f;
-		}
-		if (CapsuleItem->GetNombre() == "DecreWeapon") {
-			TakeItem(CapsuleItem);
-			FireRate += 2.f;
+		if (CapsuleItem->GetNombre() == "Escudo1") {
+			CapsuleItem->Destruir();
 		}
 	}
 	
-}*/
+}

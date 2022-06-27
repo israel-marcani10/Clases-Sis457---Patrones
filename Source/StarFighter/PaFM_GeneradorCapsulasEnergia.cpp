@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "PaFM_GeneradorCapsulasEnergia.h"
+#include "PaFM_CapsulaEnergia.h"
+#include "PaFM_CApsulaVida1.h"
 
 bool APaFM_GeneradorCapsulasEnergia::FabricarCapsula(FString NombreTipoCapsula)
 {
@@ -10,13 +12,12 @@ bool APaFM_GeneradorCapsulasEnergia::FabricarCapsula(FString NombreTipoCapsula)
 
 	if (NombreTipoCapsula.Equals("Energia1")) {
 		
-		GetWorld()->SpawnActor<AMyCapsule>(CapsulaEnergia1, SpawnLocation, Rotation);
-
+		GetWorld()->SpawnActor<APaFM_CapsulaEnergia>(SpawnLocation, Rotation);
 		return true;
 	}
 
 	if (NombreTipoCapsula.Equals("Vida1")) {
-		GetWorld()->SpawnActor<AMyCapsule>(AMyCapsule::StaticClass());
+		GetWorld()->SpawnActor<APaFM_CApsulaVida1>(SpawnLocation, Rotation);
 		return true;
 	}
 	
