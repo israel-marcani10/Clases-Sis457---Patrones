@@ -8,7 +8,7 @@
 #include "Pa_OSubscriber.h"
 #include "Pa_OEnemigo.generated.h"
 
-class APa_OPlayerShip;
+class APlayerShip;
 
 UCLASS()
 class STARFIGHTER_API APa_OEnemigo : public APawn, public IPa_OSubscriber, public IPa_OAcciones
@@ -32,7 +32,7 @@ public:
 private:
 	//La Torre del Reloj de este Suscriptor
 	UPROPERTY()
-		APa_OPlayerShip* TorreDeControl;
+		APlayerShip* TorreDeControl;
 
 protected:
 	// Called when the game starts or when spawned
@@ -46,11 +46,11 @@ public:
 	virtual void Destroyed() override;
 
 	//Llamado cuando el Plublisher cambió su estado, ejecutará esta rutina de Suscriptor
-	virtual void Update(class APa_OPublisher* Publisher) override;
+	virtual void Update(class APlayerShip* Publisher) override;
 
 	//Ejecutar esta rutina de Suscriptor
 	virtual void Acciones();
 
 	//Establecer la torre del reloj de este suscriptor
-	void setTorreControl(APa_OPlayerShip* MiTorreControl);
+	void setTorreControl(APlayerShip* MiTorreControl);
 };

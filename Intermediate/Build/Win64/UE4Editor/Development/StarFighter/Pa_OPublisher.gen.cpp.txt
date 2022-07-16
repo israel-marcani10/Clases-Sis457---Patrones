@@ -2,6 +2,4 @@ C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter/Pa_OPublisher.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Pa_OSubscriber.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Pa_OSubscriber.generated.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Pa_OPublisher.generated.h

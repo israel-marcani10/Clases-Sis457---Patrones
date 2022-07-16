@@ -1,8 +1,6 @@
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Development\StarFighter\Definitions.StarFighter.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Pa_OPlayerShip.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Pa_OPublisher.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Pa_OSubscriber.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Pa_OSubscriber.generated.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Pa_OPublisher.generated.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\Pa_OPlayerShip.generated.h
 C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\Bullet1.h

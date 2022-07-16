@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Nave.h"
+#include "Pa_OSubscriber.h"
 #include "PlayerShip.generated.h"
 
 /**
@@ -49,10 +50,10 @@ public:
 		class USoundBase* FireSound;
 
 	// Nombres estáticos para enlaces de ejes y disparo
-	static const FName MoveHorizontalBinding1;
-	static const FName MoveVerticalBinding1;
-	static const FName FireBinding11;
-	static const FName FireBinding21;
+	static const FName MoveHorizontalBinding;
+	static const FName MoveVerticalBinding;
+	static const FName FireBinding1;
+	static const FName FireBinding2;
 
 	// metodos para el disparo de las municiones diferentes
 	void FireShoot1();
@@ -96,5 +97,32 @@ private:
 
 	// Variable para una gestión eficiente del temporizador ShotTimerExpired
 	//FTimerHandle TimerHandle_ShotTimerExpired; 
+	bool ValueMovement;
+	float ValueShoot;
+private:
+	//La hora actual de esta Torre del Reloj
+	FString Time;
 
+public:
+	//Llamado cuando la hora de esta Torre del Reloj ha cambiado
+	void CambiarAccion();
+
+	//Establecer la hora de esta Torre del Reloj
+	void setCambiarAccion(FString miAccion);
+
+	//Devuelve la hora de esta Torre del Reloj
+	FORCEINLINE FString GetTime() { return Time; };
+private:
+	//Los suscriptores de este Publisher
+	UPROPERTY()
+		TArray<APawn*> Subscribers = TArray<APawn*>();
+public:
+	//Agregar el suscriptor aprobado a la lista
+	virtual void Subscribe(APawn* Subscriber);
+
+	//Eliminar el suscriptor aprobado de la lista
+	virtual void UnSubscribe(APawn* SubscriberToRemove);
+
+	//Notificar a todos los Suscriptores que algo ha cambiado
+	virtual void NotifySubscribers();
 };

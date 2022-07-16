@@ -23,5 +23,5 @@ class STARFIGHTER_API IPa_OSubscriber
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 	//Funcion virtual pura del Suscriptor
-	virtual void Update(class APa_OPublisher* Publisher) = 0;
+	virtual void Update(class APlayerShip* Publisher) = 0;
 };

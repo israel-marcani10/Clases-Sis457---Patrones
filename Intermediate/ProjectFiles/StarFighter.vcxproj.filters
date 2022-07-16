@@ -217,18 +217,6 @@
     <ClInclude Include="..\..\Source\StarFighter\Pa_OEnemigo02.h">
       <Filter>Source\StarFighter</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\Pa_OPlayerShip.cpp">
-      <Filter>Source\StarFighter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\Pa_OPlayerShip.h">
-      <Filter>Source\StarFighter</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\StarFighter\Pa_OPublisher.cpp">
-      <Filter>Source\StarFighter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\StarFighter\Pa_OPublisher.h">
-      <Filter>Source\StarFighter</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\StarFighter\Pa_OSubscriber.cpp">
       <Filter>Source\StarFighter</Filter>
     </ClCompile>

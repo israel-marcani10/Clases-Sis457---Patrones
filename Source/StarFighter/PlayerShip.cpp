@@ -10,15 +10,15 @@
 #include "MyCapsule.h"
 #include "GameFramework/SpringArmComponent.h"
 
-const FName APlayerShip::MoveHorizontalBinding1("MoveHorizontal1");
-const FName APlayerShip::MoveVerticalBinding1("MoveVertical1");
-const FName APlayerShip::FireBinding11("Bullet11");
-const FName APlayerShip::FireBinding21("Bullet21");
+const FName APlayerShip::MoveHorizontalBinding("MoveHorizontal");
+const FName APlayerShip::MoveVerticalBinding("MoveVertical");
+const FName APlayerShip::FireBinding1("Bullet1");
+const FName APlayerShip::FireBinding2("Bullet2");
 
 APlayerShip::APlayerShip()
 {
 	// nave jugador posee automaticamente la camara al empezar el nivel
-	AutoPossessPlayer = EAutoReceiveInput::Player1;
+	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
 	// Efecto del sonido
 	static ConstructorHelpers::FObjectFinder<USoundBase> FireAudio(TEXT("SoundWave'/Game/SFX/laser.laser'"));
@@ -28,18 +28,20 @@ APlayerShip::APlayerShip()
 	GunOffset = FVector(90.f, 0.f, 0.f);
 	GunOffset1 = FVector(90.f, 0.f, 0.f);
 
-	MaxVelocity = 300.0f; // velocidad maxima
+	
 	Max_Health = 100.0f; // salud maxima
 	Max_Armor = 100.0f; // armadura maxima
 	BulletNumbers = 0;
 
+	ValueMovement = false;
+	ValueShoot = 0.f;
 	//ShipInventory = CreateDefaultSubobject<UInventoryComponent>("MyInventory");
 }
 
 void APlayerShip::BeginPlay()
 {
 	Super::BeginPlay();
-
+	MaxVelocity = 200.0f; // velocidad maxima
 }
 
 void APlayerShip::Tick(float DeltaTime)
@@ -59,6 +61,29 @@ void APlayerShip::Tick(float DeltaTime)
 	if (Max_Health <= 0.f) {
 		this->ExplodeAndDestroy();
 	}
+
+	// mandando las acciones que deben hacer los enemigos
+	// jugador no se mueve, enemigo no se mueve
+	if (ValueMovement == false)
+		setCambiarAccion("Estatico");
+
+	// jugador se mueve pero no disparar, enemigo se mueve
+	if (Current_X_Velocity != 0.f) {
+		ValueMovement = false;
+		setCambiarAccion("Movimiento");
+	}
+	if (Current_Y_Velocity != 0.f) {
+		ValueMovement = false;
+		setCambiarAccion("Movimiento");
+	}
+
+	// jugador dispara
+	if (ValueShoot >= 0.f) {
+		ValueShoot -= DeltaTime;
+		setCambiarAccion("Atacando");
+	}
+
+
 }
 
 void APlayerShip::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -66,10 +91,10 @@ void APlayerShip::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	check(PlayerInputComponent);
 
 	// conectando con el unreal para el manejo de las teclas
-	PlayerInputComponent->BindAxis(MoveHorizontalBinding1, this, &APlayerShip::MoveHorizontal);
-	PlayerInputComponent->BindAxis(MoveVerticalBinding1, this, &APlayerShip::MoveVertical);
-	InputComponent->BindAction(FireBinding11, IE_Pressed, this, &APlayerShip::FireShoot1);
-	InputComponent->BindAction(FireBinding21, IE_Pressed, this, &APlayerShip::FireShoot2);
+	PlayerInputComponent->BindAxis(MoveHorizontalBinding, this, &APlayerShip::MoveHorizontal);
+	PlayerInputComponent->BindAxis(MoveVerticalBinding, this, &APlayerShip::MoveVertical);
+	InputComponent->BindAction(FireBinding1, IE_Pressed, this, &APlayerShip::FireShoot1);
+	InputComponent->BindAction(FireBinding2, IE_Pressed, this, &APlayerShip::FireShoot2);
 }
 
 void APlayerShip::MoveHorizontal(float AxisValue)
@@ -106,7 +131,7 @@ void APlayerShip::FireShoot1()
 			World->SpawnActor<ABullet1>(SpawnLocation, FireRotation);
 		}
 	}
-	
+	ValueShoot += 1.5f;
 
 	//World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &APlayerShip::ShotTimerExpired, FireRate);
 	/*
@@ -200,4 +225,45 @@ void APlayerShip::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimiti
 		}
 	}
 	
+}
+
+void APlayerShip::CambiarAccion()
+{
+	//Cuando la hora ha cambiado, esta Torre del Reloj (que es un Plubisher) notifica a todos los Subscriber que la hora ha cambiado
+	NotifySubscribers();
+}
+
+void APlayerShip::setCambiarAccion(FString miAccion)
+{
+	//Establezca la hora usando el parámetro pasado y advierta que ha cambiado
+	Time = miAccion;
+	CambiarAccion();
+}
+
+
+void APlayerShip::Subscribe(APawn* Subscriber)
+{
+	//Agregar el Suscriptor aprobado
+	Subscribers.Add(Subscriber);
+}
+
+void APlayerShip::UnSubscribe(APawn* SubscriberToRemove)
+{
+	//Eliminar el Suscriptor aprobado
+	Subscribers.Remove(SubscriberToRemove);
+}
+
+void APlayerShip::NotifySubscribers()
+{
+	//Bucle para cada suscriptor
+	for (APawn* Actor : Subscribers)
+	{
+		//Enviar cada uno de ellos a un Suscriptor concreto
+		IPa_OSubscriber* Sub = Cast<IPa_OSubscriber>(Actor);
+		if (Sub)
+		{
+			//Notificar a cada uno de ellos que algo ha cambiado, para que puedan ejecutar su propia rutina.
+			Sub->Update(this);
+		}
+	}
 }

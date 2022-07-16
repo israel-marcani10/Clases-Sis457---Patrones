@@ -7,7 +7,7 @@
 #include "PaFM_GeneradorCapsulasArmas.h"
 #include "PaFM_GeneradorCapsulasEnergia.h"
 #include "PaAda_FoodAdapter.h"
-#include "Pa_OPlayerShip.h"
+//#include "PlayerShip.h"
 #include "Pa_OEnemigo.h"
 #include "Pa_OEnemigo02.h"
 
@@ -66,11 +66,12 @@ void AStarFighterGameModeBase::BeginPlay()
 	SetCrearFood(FoodAdapter);
 	
 	
+	/*
 	// PATRON DE COMPORTAMIENTO OBSERVER
 	//Engendra la Torre de control
 	const FVector LocationPlayer = FVector(-680.f, 0.f, 0.f);
 	const FRotator RotationPlayer = FRotator(0.f, -90.f, 90.f);
-	APa_OPlayerShip* NaveJugador =  GetWorld()->SpawnActor<APa_OPlayerShip>(LocationPlayer, RotationPlayer);
+	APlayerShip* NaveJugador =  GetWorld()->SpawnActor<APlayerShip>(LocationPlayer, RotationPlayer);
 
 	//Engendra el primer Suscriptor (enemigo1) y establece su Torre de control
 	const FVector LocationEnemy1 = FVector(650.f, -200.f, 0.f);
@@ -88,6 +89,7 @@ void AStarFighterGameModeBase::BeginPlay()
 	//NaveJugador->setCambiarAccion("Morning");
 	//NaveJugador->setCambiarAccion("Midday");
 	//NaveJugador->setCambiarAccion("Evening");
+	*/
 }
 
 void AStarFighterGameModeBase::Tick(float DeltaTime)

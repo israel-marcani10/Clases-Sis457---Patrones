@@ -2,8 +2,7 @@
 
 
 #include "Pa_OEnemigo02.h"
-#include "Pa_OPublisher.h"
-#include "Pa_OPlayerShip.h"
+#include "PlayerShip.h"
 #include "BulletEnemy.h"
 
 // Sets default values
@@ -120,7 +119,7 @@ void APa_OEnemigo02::Destroyed()
 	TorreDeControl->UnSubscribe(this);
 }
 
-void APa_OEnemigo02::Update(APa_OPublisher* Publisher)
+void APa_OEnemigo02::Update(APlayerShip* Publisher)
 {
 	// ejecutar tareas
 	Acciones();
@@ -137,7 +136,7 @@ void APa_OEnemigo02::Acciones()
 	AccionesGlobal = TorreDeControl->GetTime();
 }
 
-void APa_OEnemigo02::setTorreControl(APa_OPlayerShip* MiTorreControl)
+void APa_OEnemigo02::setTorreControl(APlayerShip* MiTorreControl)
 {
 	//Error de registro si la torre del reloj aprobada es NULL
 	if (!MiTorreControl) {

@@ -1,7 +1,0 @@
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Development\StarFighter\Definitions.StarFighter.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter/PatternEnemyShip1.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Source\StarFighter\EnemyShipWithPatternBuilder.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\EnemyShipWithPatternBuilder.generated.h
-C:\SIS457\Trabajos Unreal Engine\StarFighter\Intermediate\Build\Win64\UE4Editor\Inc\StarFighter\PatternEnemyShip1.generated.h

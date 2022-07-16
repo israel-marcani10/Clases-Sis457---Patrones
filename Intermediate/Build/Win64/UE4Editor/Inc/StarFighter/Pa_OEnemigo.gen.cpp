@@ -18,7 +18,7 @@ void EmptyLinkFunctionForGeneratedCodePa_OEnemigo() {}
 	ENGINE_API UClass* Z_Construct_UClass_APawn();
 	UPackage* Z_Construct_UPackage__Script_StarFighter();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
-	STARFIGHTER_API UClass* Z_Construct_UClass_APa_OPlayerShip_NoRegister();
+	STARFIGHTER_API UClass* Z_Construct_UClass_APlayerShip_NoRegister();
 	STARFIGHTER_API UClass* Z_Construct_UClass_UPa_OSubscriber_NoRegister();
 	STARFIGHTER_API UClass* Z_Construct_UClass_UPa_OAcciones_NoRegister();
 // End Cross Module References
@@ -76,7 +76,7 @@ void EmptyLinkFunctionForGeneratedCodePa_OEnemigo() {}
 		{ "ToolTip", "La Torre del Reloj de este Suscriptor" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APa_OEnemigo_Statics::NewProp_TorreDeControl = { "TorreDeControl", nullptr, (EPropertyFlags)0x0040000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APa_OEnemigo, TorreDeControl), Z_Construct_UClass_APa_OPlayerShip_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APa_OEnemigo_Statics::NewProp_TorreDeControl_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APa_OEnemigo_Statics::NewProp_TorreDeControl_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APa_OEnemigo_Statics::NewProp_TorreDeControl = { "TorreDeControl", nullptr, (EPropertyFlags)0x0040000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APa_OEnemigo, TorreDeControl), Z_Construct_UClass_APlayerShip_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APa_OEnemigo_Statics::NewProp_TorreDeControl_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APa_OEnemigo_Statics::NewProp_TorreDeControl_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APa_OEnemigo_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APa_OEnemigo_Statics::NewProp_ShipMeshEnemy,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APa_OEnemigo_Statics::NewProp_TorreDeControl,
@@ -112,7 +112,7 @@ void EmptyLinkFunctionForGeneratedCodePa_OEnemigo() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APa_OEnemigo, 2103072425);
+	IMPLEMENT_CLASS(APa_OEnemigo, 4047653059);
 	template<> STARFIGHTER_API UClass* StaticClass<APa_OEnemigo>()
 	{
 		return APa_OEnemigo::StaticClass();
